@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{E572AD81-DEE0-4576-A839-BB1CE54F25A4}|Default" GitUserInfo="UsingMD">
+  <MonoDevelop.Ide.Workbench ActiveDocument="E_LearningAPI/Controllers/ValuesController.cs">
+    <Files>
+      <File FileName="E_LearningAPI/Program.cs" Line="19" Column="27" />
+      <File FileName="E_LearningAPI/Controllers/WeatherForecastController.cs" Line="5" Column="20" />
+      <File FileName="E_LearningAPI/Controllers/ValuesController.cs" Line="35" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="E_Learning" expanded="True">
+            <Node name="E_LearningAPI" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.E__LearningAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,35 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj": {}
+    "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj": {}
   },
   "projects": {
-    "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj": {
+    "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj",
+        "projectUniqueName": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj",
         "projectName": "E_Learning_Library",
-        "projectPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj",
-        "packagesPath": "C:\\Users\\nikos\\.nuget\\packages\\",
-        "outputPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\obj\\",
+        "projectPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj",
+        "packagesPath": "/Users/georgesakkos/.nuget/packages/",
+        "outputPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "S:\\syncfusion\\WPF\\21.1.35\\ToolboxNuGetPackages"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\nikos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
+          "/Users/georgesakkos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "S:\\syncfusion\\WinUI\\21.1.35\\NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }
