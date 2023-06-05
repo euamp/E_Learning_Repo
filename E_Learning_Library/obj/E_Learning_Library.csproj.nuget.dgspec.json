@@ -1,28 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj": {}
+    "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj": {}
   },
   "projects": {
-    "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj": {
+    "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj",
+        "projectUniqueName": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj",
         "projectName": "E_Learning_Library",
-        "projectPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/E_Learning_Library.csproj",
-        "packagesPath": "/Users/georgesakkos/.nuget/packages/",
-        "outputPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_Learning_Library/obj/",
+        "projectPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\E_Learning_Library.csproj",
+        "packagesPath": "C:\\Users\\nikos\\.nuget\\packages\\",
+        "outputPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_Learning_Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "S:\\syncfusion\\WPF\\21.1.35\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
-          "/Users/georgesakkos/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nikos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "S:\\syncfusion\\WinUI\\21.1.35\\NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +47,22 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -56,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

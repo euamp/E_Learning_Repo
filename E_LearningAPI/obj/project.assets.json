@@ -224,29 +224,37 @@
     ]
   },
   "packageFolders": {
-    "/Users/georgesakkos/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\nikos\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "S:\\syncfusion\\WPF\\21.1.35\\ToolboxNuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_LearningAPI/E_LearningAPI.csproj",
+      "projectUniqueName": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\E_LearningAPI.csproj",
       "projectName": "E_LearningAPI",
-      "projectPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_LearningAPI/E_LearningAPI.csproj",
-      "packagesPath": "/Users/georgesakkos/.nuget/packages/",
-      "outputPath": "/Users/georgesakkos/Desktop/8o/e_learning_project/E_Learning_Repo/E_LearningAPI/obj/",
+      "projectPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\E_LearningAPI.csproj",
+      "packagesPath": "C:\\Users\\nikos\\.nuget\\packages\\",
+      "outputPath": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "S:\\syncfusion\\WPF\\21.1.35\\ToolboxNuGetPackages"
       ],
       "configFilePaths": [
-        "/Users/georgesakkos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\nikos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+        "S:\\syncfusion\\WinUI\\21.1.35\\NuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -289,7 +297,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
