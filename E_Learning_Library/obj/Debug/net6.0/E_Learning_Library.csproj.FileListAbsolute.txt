@@ -1,0 +1,14 @@
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\bin\Debug\net6.0\E_Learning_Library.deps.json
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\bin\Debug\net6.0\E_Learning_Library.runtimeconfig.json
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\bin\Debug\net6.0\E_Learning_Library.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\bin\Debug\net6.0\E_Learning_Library.pdb
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.csproj.AssemblyReference.cache
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.GeneratedMSBuildEditorConfig.editorconfig
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.AssemblyInfoInputs.cache
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.AssemblyInfo.cs
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.csproj.CoreCompileInputs.cache
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\refint\E_Learning_Library.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.pdb
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\E_Learning_Library.genruntimeconfig.cache
+S:\visual_studio_projects\web_projects\E_Learning\E_Learning_Library\obj\Debug\net6.0\ref\E_Learning_Library.dll
