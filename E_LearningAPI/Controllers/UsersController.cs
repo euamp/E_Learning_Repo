@@ -4,134 +4,133 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 
-namespace E_LearningAPI.Controllers
+namespace E_LearningAPI.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class UsersController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
+    private readonly ELearningDbContext _context;
+
+    public UsersController(ELearningDbContext context)
     {
-        private readonly ELearningDbContext _context;
+        _context = context;
+    }
 
-        public UsersController(ELearningDbContext context)
+    // GET: api/Users
+    [HttpGet]
+    public ActionResult<IEnumerable<User>> Get()
+    {
+        var users = _context.Users.ToList();
+        return Ok(users);
+    }
+
+    // GET api/Users/5
+    [HttpGet("{id}")]
+    public ActionResult<User> Get(int id)
+    {
+        var user = _context.Users.SingleOrDefault(x => x.Id == id);
+
+        if (user == null)
         {
-            _context = context;
+            return NotFound("User Not Found");
         }
-
-        // GET: api/Users
-        [HttpGet]
-        public ActionResult<IEnumerable<User>> Get()
+        else
         {
-            var users = _context.Users.ToList();
-            return Ok(users);
+            return Ok(user);
         }
+    }
 
-        // GET api/Users/5
-        [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+    // POST api/Users
+    [HttpPost]
+    public ActionResult Post(UserDTO userDTO)
+    {
+        var user1 = _context.Users
+            .Where(u => u.Username == userDTO.Username)
+            .FirstOrDefault();
+
+        var user2 = _context.Users
+            .Where(e => e.Email == userDTO.Email)
+            .FirstOrDefault();
+
+        if (user1 is not null)
         {
-            var user = _context.Users.SingleOrDefault(x => x.Id == id);
-
-            if (user == null)
-            {
-                return NotFound("User Not Found");
-            }
-            else
-            {
-                return Ok(user);
-            }
+            return BadRequest();
         }
-
-        // POST api/Users
-        [HttpPost]
-        public ActionResult Post(UserDTO userDTO)
+        else if (user2 is not null)
         {
-            var user1 = _context.Users
-                .Where(u => u.Username == userDTO.Username)
-                .FirstOrDefault();
-
-            var user2 = _context.Users
-                .Where(e => e.Email == userDTO.Email)
-                .FirstOrDefault();
-
-            if (user1 is not null)
-            {
-                return BadRequest();
-            }
-            else if (user2 is not null)
-            {
-                return BadRequest();
-            }
-            else
-            {
-                User user = new User();
-                user.Username = userDTO.Username;
-                user.Password = userDTO.Password;
-                user.Email = userDTO.Email;
-                user.Firstname = userDTO.Firstname;
-                user.Lastname = userDTO.Lastname;
-                user.RoleName = "User";
-                user.IsGraduated = userDTO.IsGraduated;
-
-                _context.Users.Add(user);
-                _context.SaveChanges();
-
-                return Ok(user);
-            }
+            return BadRequest();
         }
-
-        // PUT api/Users/5
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, UserDTO userDTO)
+        else
         {
-            var user = _context.Users.Find(id);
+            User user = new User();
+            user.Username = userDTO.Username;
+            user.Password = userDTO.Password;
+            user.Email = userDTO.Email;
+            user.Firstname = userDTO.Firstname;
+            user.Lastname = userDTO.Lastname;
+            user.RoleName = "User";
+            user.IsGraduated = userDTO.IsGraduated;
 
-            if (user != null)
-            {
-                try
-                {
-                    _context.Users
-                    .Where(i => i.Id == id)
-                    .ExecuteUpdate(s => s
-                        .SetProperty(u => u.Username, u => userDTO.Username)
-                        .SetProperty(p => p.Password, p => userDTO.Password)
-                        .SetProperty(f => f.Firstname, f => userDTO.Firstname)
-                        .SetProperty(l => l.Lastname, f => userDTO.Lastname)
-                        .SetProperty(e => e.Email, f => userDTO.Email)
-                        .SetProperty(g => g.IsGraduated, g => userDTO.IsGraduated)
-                    );
+            _context.Users.Add(user);
+            _context.SaveChanges();
 
-                    return Ok(userDTO);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return BadRequest();
-                }
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return Ok(user);
         }
+    }
 
-        // DELETE api/Users/5
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+    // PUT api/Users/5
+    [HttpPut("{id}")]
+    public ActionResult Put(int id, UserDTO userDTO)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user != null)
         {
-            var user = _context.Users.Find(id);
-
-            if (user == null)
-            {
-                return NotFound("User Not Found");
-            }
-            else
+            try
             {
                 _context.Users
-                    .Where(i => i.Id.Equals(id))
-                    .ExecuteDelete();
+                .Where(i => i.Id == id)
+                .ExecuteUpdate(s => s
+                    .SetProperty(u => u.Username, u => userDTO.Username)
+                    .SetProperty(p => p.Password, p => userDTO.Password)
+                    .SetProperty(f => f.Firstname, f => userDTO.Firstname)
+                    .SetProperty(l => l.Lastname, f => userDTO.Lastname)
+                    .SetProperty(e => e.Email, f => userDTO.Email)
+                    .SetProperty(g => g.IsGraduated, g => userDTO.IsGraduated)
+                );
 
-                return Ok("Deleted Successfully");
+                return Ok(userDTO);
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest();
+            }
+        }
+        else
+        {
+            return BadRequest();
+        }
+    }
+
+    // DELETE api/Users/5
+    [HttpDelete("{id}")]
+    public ActionResult Delete(int id)
+    {
+        var user = _context.Users.Find(id);
+
+        if (user == null)
+        {
+            return NotFound("User Not Found");
+        }
+        else
+        {
+            _context.Users
+                .Where(i => i.Id.Equals(id))
+                .ExecuteDelete();
+
+            return Ok("Deleted Successfully");
         }
     }
 }
