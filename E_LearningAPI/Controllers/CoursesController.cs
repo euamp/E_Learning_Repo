@@ -1,5 +1,7 @@
-﻿using E_Learning_Library.Models;
+﻿using E_Learning_Library.DataTransferObjects;
+using E_Learning_Library.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_LearningAPI.Controllers;
 
@@ -16,33 +18,98 @@ public class CoursesController : ControllerBase
 
     // GET: api/Courses
     [HttpGet]
-    public IEnumerable<string> Get()
+    public ActionResult<IEnumerable<Course>> Get()
     {
-        return new string[] { "value1", "value2" };
+        var courses = _context.Courses.ToList();
+        return Ok(courses);
     }
 
     // GET api/Courses/5
     [HttpGet("{id}")]
-    public string Get(int id)
+    public ActionResult<Course> Get(int id)
     {
-        return "value";
+        var course = _context.Courses.SingleOrDefault(x => x.CourseId == id);
+
+        if (course == null)
+        {
+            return NotFound("User Not Found");
+        }
+        else
+        {
+            return Ok(course);
+        }
     }
 
     // POST api/Courses
     [HttpPost]
-    public void Post([FromBody] string value)
+    public ActionResult Post(CourseDTO courseCreateDTO)
     {
+        try
+        {
+            Course course = new Course();
+            course.CourseName = courseCreateDTO.CourseName;
+            course.Description = courseCreateDTO.Description;
+
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+
+            return Ok(course);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return BadRequest();
+        }
     }
 
     // PUT api/Courses/5
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    public ActionResult Put(int id, CourseDTO courseDTO)
     {
+        var course = _context.Courses.Find(id);
+
+        if(course != null)
+        {
+            try
+            {
+                _context.Courses
+                .Where(i => i.CourseId == id)
+                .ExecuteUpdate(s => s
+                    .SetProperty(n => n.CourseName, n => courseDTO.CourseName)
+                    .SetProperty(d => d.Description, d => courseDTO.Description)
+                );
+
+                return Ok(courseDTO);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest();
+            }
+        }
+        else
+        {
+            return BadRequest();
+        }
     }
 
     // DELETE api/Courses/5
     [HttpDelete("{id}")]
-    public void Delete(int id)
+    public ActionResult Delete(int id)
     {
+        var courses = _context.Courses.Find(id);
+
+        if (courses == null)
+        {
+            return NotFound("User Not Found");
+        }
+        else
+        {
+            _context.Courses
+                .Where(i => i.CourseId.Equals(id))
+                .ExecuteDelete();
+
+            return Ok("Deleted Successfully");
+        }
     }
 }
