@@ -32,7 +32,7 @@ public class CoursesController : ControllerBase
 
         if (course == null)
         {
-            return NotFound("User Not Found");
+            return NotFound("Course Not Found");
         }
         else
         {
@@ -101,7 +101,7 @@ public class CoursesController : ControllerBase
 
         if (courses == null)
         {
-            return NotFound("User Not Found");
+            return NotFound("Course Not Found");
         }
         else
         {
