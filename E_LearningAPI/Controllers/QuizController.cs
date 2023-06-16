@@ -1,4 +1,5 @@
-﻿using E_Learning_Library.Models;
+﻿using E_Learning_Library.DataTransferObjects;
+using E_Learning_Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +20,9 @@ public class QuizController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Quiz>> Get()
     {
-        var quizes = _context.Quizzes.ToList();
+        var quizes = _context.Quizzes
+            .Include(q => q.Questions)
+            .ToList();
         return Ok(quizes);
     }
 
@@ -27,7 +30,8 @@ public class QuizController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Quiz> Get(int id)
     {
-        var quiz = _context.Quizzes.SingleOrDefault(x => x.QuizId == id);
+        var quiz = _context.Quizzes
+            .SingleOrDefault(x => x.QuizId == id);
 
         if (quiz == null)
         {
@@ -41,20 +45,58 @@ public class QuizController : ControllerBase
 
     // POST api/Quiz
     [HttpPost]
-    public ActionResult Post([FromBody] string value)
+    public ActionResult Post(QuizCreateDTO quizCreateDTO)
     {
-        var course = _context.Courses.ToList();
+        var course = _context.Courses
+            .Where(c => c.CourseId == quizCreateDTO.CourseId)
+            .FirstOrDefault();
 
-        if(course == null)
+        if (course is null)
         {
             return BadRequest();
+        }
+        else
+        {
+            Quiz quiz = new Quiz();
+            quiz.CourseId = quizCreateDTO.CourseId;
+            quiz.QuizName = quizCreateDTO.QuizName;
+            quiz.Course = course;
+
+            _context.Quizzes.Add(quiz);
+            _context.SaveChanges();
+
+            return Ok(quiz);
         }
     }
 
     // PUT api/Quiz/5
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody] string value)
+    public ActionResult Put(int id, QuizEditDTO quizEditDTO)
     {
+        var quiz = _context.Quizzes.Find(id);
+
+        if (quiz != null)
+        {
+            try
+            {
+                _context.Quizzes
+                .Where(i => i.QuizId == id)
+                .ExecuteUpdate(s => s
+                    .SetProperty(n => n.QuizName, n => quizEditDTO.QuizName)
+                );
+
+                return Ok(quizEditDTO);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return BadRequest();
+            }
+        }
+        else
+        {
+            return BadRequest();
+        }
     }
 
     // DELETE api/Quiz/5
