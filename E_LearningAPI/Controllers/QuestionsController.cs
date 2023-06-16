@@ -31,6 +31,7 @@ public class QuestionsController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Question> Get(int id)
     {
+        // TODO: Προσθέτω τα Include() Που έχει και από πάνω
         var question = _context.Questions
             .SingleOrDefault(x => x.QuestionId == id);
 

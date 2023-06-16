@@ -23,6 +23,7 @@ public class QuizController : ControllerBase
         var quizes = _context.Quizzes
             .Include(q => q.Questions)
             .ThenInclude(a => a.Answers)
+            .Include(u => u.UserAnswers)
             .ToList();
         return Ok(quizes);
     }
@@ -31,6 +32,7 @@ public class QuizController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Quiz> Get(int id)
     {
+        // TODO: Προσθέτω τα Include() Που έχει και από πάνω
         var quiz = _context.Quizzes
             .SingleOrDefault(x => x.QuizId == id);
 

@@ -149,21 +149,26 @@ public partial class ELearningDbContext : DbContext
             entity.ToTable("User_answer");
 
             entity.Property(e => e.UserAnswerId).HasColumnName("User_answer_id");
+            entity.Property(e => e.User_id).HasColumnName("User_id");
             entity.Property(e => e.AnswerId).HasColumnName("Answer_id");
             entity.Property(e => e.QuestionId).HasColumnName("Question_id");
             entity.Property(e => e.QuizId).HasColumnName("Quiz_id");
 
-            entity.HasOne(d => d.Answer).WithMany(p => p.UserAnswers)
-                .HasForeignKey(d => d.AnswerId)
-                .HasConstraintName("FK__User_answ__Answe__7C4F7684");
+            //entity.HasOne(d => d.User_id).WithMany(p => p.UserAnswers)
+            //    .HasForeignKey(d => d.User_Id)
+            //    .HasConstraintName("FK__User_ID__Answe__7C4F7684");
+            
+            //entity.HasOne(d => d.Answer).WithMany(p => p.UserAnswers)
+            //    .HasForeignKey(d => d.AnswerId)
+            //    .HasConstraintName("FK__User_answ__Answe__7C4F7684");
 
-            entity.HasOne(d => d.Question).WithMany(p => p.UserAnswers)
-                .HasForeignKey(d => d.QuestionId)
-                .HasConstraintName("FK__User_answ__Quest__7D439ABD");
+            //entity.HasOne(d => d.Question).WithMany(p => p.UserAnswers)
+            //    .HasForeignKey(d => d.QuestionId)
+            //    .HasConstraintName("FK__User_answ__Quest__7D439ABD");
 
-            entity.HasOne(d => d.Quiz).WithMany(p => p.UserAnswers)
-                .HasForeignKey(d => d.QuizId)
-                .HasConstraintName("FK__User_answ__Quiz___7E37BEF6");
+            //entity.HasOne(d => d.Quiz).WithMany(p => p.UserAnswers)
+            //    .HasForeignKey(d => d.QuizId)
+            //    .HasConstraintName("FK__User_answ__Quiz___7E37BEF6");
         });
 
         modelBuilder.Entity<UserProgress>(entity =>
