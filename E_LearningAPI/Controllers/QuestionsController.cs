@@ -22,6 +22,7 @@ public class QuestionsController : ControllerBase
     public ActionResult<IEnumerable<Question>> Get()
     {
         var questions = _context.Questions
+            .Include(a => a.Answers)
             .ToList();
         return Ok(questions);
     }

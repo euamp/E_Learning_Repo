@@ -22,6 +22,7 @@ public class QuizController : ControllerBase
     {
         var quizes = _context.Quizzes
             .Include(q => q.Questions)
+            .ThenInclude(a => a.Answers)
             .ToList();
         return Ok(quizes);
     }

@@ -51,9 +51,9 @@ public partial class ELearningDbContext : DbContext
                 .HasColumnName("Is_correct");
             entity.Property(e => e.QuestionId).HasColumnName("Question_id");
 
-            entity.HasOne(d => d.Question).WithMany(p => p.Answers)
-                .HasForeignKey(d => d.QuestionId)
-                .HasConstraintName("FK__Answer__Question__3B75D760");
+            //entity.HasOne(d => d.Question).WithMany(p => p.Answers)
+            //    .HasForeignKey(d => d.QuestionId)
+            //    .HasConstraintName("FK__Answer__Question__3B75D760");
         });
 
         modelBuilder.Entity<Course>(entity =>
