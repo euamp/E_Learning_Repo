@@ -11,7 +11,7 @@ public partial class Quiz
 
     public string QuizName { get; set; } = null!;
 
-    public virtual Course Course { get; set; } = null!;
+    //public virtual Course Course { get; set; } = null!;
 
     public virtual ICollection<Question> Questions { get; set; } = new List<Question>();
 

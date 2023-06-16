@@ -60,7 +60,7 @@ public class QuestionsController : ControllerBase
             Question question = new Question();
             question.QuizId = questionCreateDTO.QuizId;
             question.QuestionText = questionCreateDTO.QuestionText;
-            question.Quiz = quiz;
+            //question.Quiz = quiz;
 
             _context.Questions.Add(question);
             _context.SaveChanges();

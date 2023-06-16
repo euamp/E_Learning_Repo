@@ -81,9 +81,9 @@ public partial class ELearningDbContext : DbContext
                 .HasColumnName("Question_text");
             entity.Property(e => e.QuizId).HasColumnName("Quiz_id");
 
-            entity.HasOne(d => d.Quiz).WithMany(p => p.Questions)
-                .HasForeignKey(d => d.QuizId)
-                .HasConstraintName("FK__Question__Quiz_i__3C69FB99");
+            //entity.HasOne(d => d.Quiz).WithMany(p => p.Questions)
+            //    .HasForeignKey(d => d.QuizId)
+            //    .HasConstraintName("FK__Question__Quiz_i__3C69FB99");
         });
 
         modelBuilder.Entity<Quiz>(entity =>
@@ -98,9 +98,9 @@ public partial class ELearningDbContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("Quiz_name");
 
-            entity.HasOne(d => d.Course).WithMany(p => p.Quizzes)
-                .HasForeignKey(d => d.CourseId)
-                .HasConstraintName("FK__Quiz__Course_id__2F10007B");
+            //entity.HasOne(d => d.Course).WithMany(p => p.Quizzes)
+            //    .HasForeignKey(d => d.CourseId)
+            //    .HasConstraintName("FK__Quiz__Course_id__2F10007B");
         });
 
         modelBuilder.Entity<User>(entity =>

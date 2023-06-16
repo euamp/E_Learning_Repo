@@ -11,6 +11,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //-------------------------------------------------------------------------------------------------
+
+// Here I add Cors Policy
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("OpenCorsPolicy", opt => opt
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+    );
+});
+
 // Here I add reference to the Entity Framework
 builder.Services.AddDbContext<ELearningDbContext>(options =>
 {

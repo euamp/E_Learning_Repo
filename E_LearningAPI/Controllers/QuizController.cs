@@ -60,7 +60,7 @@ public class QuizController : ControllerBase
             Quiz quiz = new Quiz();
             quiz.CourseId = quizCreateDTO.CourseId;
             quiz.QuizName = quizCreateDTO.QuizName;
-            quiz.Course = course;
+            //quiz.Course = course;
 
             _context.Quizzes.Add(quiz);
             _context.SaveChanges();
