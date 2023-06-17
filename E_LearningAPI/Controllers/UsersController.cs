@@ -136,4 +136,9 @@ public class UsersController : ControllerBase
             return Ok("Deleted Successfully");
         }
     }
+
+    public void sayHi()
+    {
+        Console.WriteLine("Hi");
+    }
 }
