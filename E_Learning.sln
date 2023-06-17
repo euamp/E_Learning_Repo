@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_LearningAPI", "E_LearningAPI\E_LearningAPI.csproj", "{E572AD81-DEE0-4576-A839-BB1CE54F25A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_LearningAPI", "E_LearningAPI\E_LearningAPI.csproj", "{E572AD81-DEE0-4576-A839-BB1CE54F25A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_Learning_Library", "E_Learning_Library\E_Learning_Library.csproj", "{DC76A555-C508-45DB-8097-94634D6E48B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Learning_Library", "E_Learning_Library\E_Learning_Library.csproj", "{DC76A555-C508-45DB-8097-94634D6E48B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_LearningWebApp", "E_LearningWebApp\E_LearningWebApp.csproj", "{B30CC299-744A-443D-8B74-D5020F858366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DC76A555-C508-45DB-8097-94634D6E48B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC76A555-C508-45DB-8097-94634D6E48B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC76A555-C508-45DB-8097-94634D6E48B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B30CC299-744A-443D-8B74-D5020F858366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B30CC299-744A-443D-8B74-D5020F858366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B30CC299-744A-443D-8B74-D5020F858366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B30CC299-744A-443D-8B74-D5020F858366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

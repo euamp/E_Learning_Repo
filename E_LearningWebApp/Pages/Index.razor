@@ -2,8 +2,110 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<main role="main">
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+   
+
+    <div class="container">
+        <!-- Background image -->
+        @*<div class="bg-image" style="background-image: url('images/blue.jpg'); background-size: cover; ">*@
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+                <div class="d-flex justify-content-center align-items-center ">
+                    <div class="text-white">
+                        <h1 class="mb-3">Heading</h1>
+                        <h4 class="mb-3">Subheading</h4>
+                        <a class="btn btn-outline-light btn-lg" href="#!" role="button">Call to action</a>
+                    </div>
+                </div>
+            </div>   
+        @*</div>*@
+        <!-- Background image -->
+        @*<h2 style="font-size:100px; color:black; margin:10px;">Προσανατολισμός </h2>
+
+        <p style="font-size:30px; color:black;"><em>γργεργργ</em></p>
+
+        <img class="img-fluid" src="images/macos.jpg" alt="A LAPTOP">*@
+    </div>
+
+    <div  class="container marketing">
+        
+        <br /><br />
+
+        <hr class="featurette-divider">
+
+      
+       
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Εκπαιδευτικο <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="https://www.iamtimcorey.com/assets/images/homepage/Lessons_SVG.svg" data-holder-rendered="true">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="https://www.iamtimcorey.com/assets/images/homepage/Cost_SVG.svg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" src="https://www.iamtimcorey.com/assets/images/homepage/Careers_SVG.svg" data-holder-rendered="true" style="width: 500px; height: 500px;">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+
+
+        <!-- /END THE FEATURETTES -->
+        <div class="card">
+            <h5 class="card-header alert-dark">Career Goal</h5>
+            <div class="card-body">
+                <h5 class="card-title">Πέτυχε τους επαγγελματικούς σου στόχους.</h5>
+                <p class="card-text">Με τη βοήθειά μας επίλεξε την καριέρα που σου ταιριάζει! </p>
+
+                <div id="careerGoalSection" class="d-flex justify-content-around flex-wrap">
+                    <button type="button" class="btn btn-secondary">C# Developer</button>
+                    <button type="button" class="btn btn-secondary">Web Developer</button>
+                    <button type="button" class="btn btn-secondary">C# Web Developer</button>
+                    <button type="button" class="btn btn-secondary">C# Developer</button>
+                    <button type="button" class="btn btn-secondary">Web Developer</button>
+                    <button type="button" class="btn btn-secondary">C# Web Developer</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!-- /.container -->
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017-2018 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+</main>
+
+@code{
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("Hi eva");
+    }
+}
