@@ -1,5 +1,6 @@
 ﻿using E_Learning_Library.DataTransferObjects;
 using E_Learning_Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace E_LearningAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class QuizController : ControllerBase
 {
     private readonly ELearningDbContext _context;

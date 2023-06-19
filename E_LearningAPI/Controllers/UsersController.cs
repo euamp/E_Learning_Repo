@@ -1,5 +1,6 @@
 ﻿using E_Learning_Library.DataTransferObjects;
 using E_Learning_Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
@@ -8,11 +9,9 @@ namespace E_LearningAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize(Roles = "Admin")]
 public class UsersController : ControllerBase
 {
-
-    // nikos v2
-
     private readonly ELearningDbContext _context;
 
     public UsersController(ELearningDbContext context)

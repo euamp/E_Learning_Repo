@@ -321,3 +321,7 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\System.Text.Json.dll
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Scrutor.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
