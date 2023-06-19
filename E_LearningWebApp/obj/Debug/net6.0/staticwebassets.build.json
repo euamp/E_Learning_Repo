@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YnapvLzXeac86wwlvWuwHmLtVFWoupRjiAdo/VrdSXk=",
+  "Hash": "mu6WZkk5jvVykyE2qpWLlhbB1h8tY3jQCQ+1Davy6Xk=",
   "Source": "E_LearningWebApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\6.0.15\\build\\net6.0\\blazor.webassembly.js"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\blazored.localstorage\\4.3.0\\lib\\net6.0\\Blazored.LocalStorage.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\dotnet.6.0.16.b840udmqjh.js",
@@ -218,7 +235,24 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.15\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.18\\lib\\net6.0\\Microsoft.AspNetCore.Authorization.dll"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\6.0.18\\lib\\net6.0\\Microsoft.AspNetCore.Components.Authorization.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
@@ -235,7 +269,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.15\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.18\\lib\\net6.0\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Forms.dll",
@@ -303,7 +337,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.15\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.18\\lib\\net6.0\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.CSharp.dll",
@@ -507,7 +541,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
+      "OriginalItemSpec": "C:\\Users\\nikos\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.4\\lib\\net6.0\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.dll",
@@ -3638,6 +3672,23 @@
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Windows.dll"
     },
     {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\1vOE9CYk.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
+    },
+    {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\1zh63VvU.gz",
       "SourceId": "E_LearningWebApp",
       "SourceType": "Computed",
@@ -3704,6 +3755,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Security.Principal.dll"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\3OztfV10.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\4ETrn3Ej.gz",
@@ -3806,23 +3874,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Linq.Expressions.dll"
-    },
-    {
-      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\6rW9CQX2.gz",
-      "SourceId": "E_LearningWebApp",
-      "SourceType": "Computed",
-      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Components.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\6uFbmmOn.gz",
@@ -4233,6 +4284,23 @@
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Xml.Linq.dll"
     },
     {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\BeiVxQb3.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
+    },
+    {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\BiL7isgn.gz",
       "SourceId": "E_LearningWebApp",
       "SourceType": "Computed",
@@ -4401,6 +4469,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\dotnet.wasm"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\d0jHBkQ+.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\daIVpTOI.gz",
@@ -5032,23 +5117,6 @@
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Data.dll"
     },
     {
-      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\I5VDOpsr.gz",
-      "SourceId": "E_LearningWebApp",
-      "SourceType": "Computed",
-      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.Extensions.Logging.Abstractions.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.Abstractions.dll"
-    },
-    {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\iDuUmwE8.gz",
       "SourceId": "E_LearningWebApp",
       "SourceType": "Computed",
@@ -5064,23 +5132,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.Extensions.Logging.dll"
-    },
-    {
-      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\Ii2iFmO2.gz",
-      "SourceId": "E_LearningWebApp",
-      "SourceType": "Computed",
-      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Metadata.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Metadata.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\IIpn3Ml4.gz",
@@ -5234,6 +5285,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Diagnostics.Process.dll"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\jY1saY08.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Blazored.LocalStorage.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Blazored.LocalStorage.dll"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\JyS5X4+R.gz",
@@ -6239,6 +6307,23 @@
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.NameResolution.dll"
     },
     {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\tL4OuL+B.gz",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Computed",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Microsoft.AspNetCore.Components.Authorization.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.Authorization.dll"
+    },
+    {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\toHICLmZ.gz",
       "SourceId": "E_LearningWebApp",
       "SourceType": "Computed",
@@ -6698,23 +6783,6 @@
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\E_LearningWebApp.pdb"
     },
     {
-      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\Z42rhZOT.gz",
-      "SourceId": "E_LearningWebApp",
-      "SourceType": "Computed",
-      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/Microsoft.AspNetCore.Authorization.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.dll"
-    },
-    {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\build-gz\\z67F7Ag6.gz",
       "SourceId": "E_LearningWebApp",
       "SourceType": "Computed",
@@ -6832,6 +6900,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\E_LearningWebApp.bundle.scp.css"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\appsettings.json",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "appsettings.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "settings",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\appsettings.json"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\css\\app.css",

@@ -602,12 +602,9 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\E_LearningWebApp.AssemblyInfo.cs
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\E_LearningWebApp.csproj.CoreCompileInputs.cache
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\E_LearningWebApp.MvcApplicationPartsAssemblyInfo.cache
-S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\Z42rhZOT.gz
-S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\6rW9CQX2.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\Gs85wDP7.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\nlSSNZSm.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\ArU+DFfU.gz
-S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\Ii2iFmO2.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\vBtV4Jne.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\a7D76PIf.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\Jb3R89o5.gz
@@ -619,7 +616,6 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\C2C+fKW4.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\gf3bW2BP.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\iDuUmwE8.gz
-S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\I5VDOpsr.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\z67F7Ag6.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\4o2sWSP1.gz
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\V+IImGxH.gz
@@ -818,3 +814,15 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\refint\E_LearningWebApp.dll
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\E_LearningWebApp.pdb
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\ref\E_LearningWebApp.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\wwwroot\_framework\Blazored.LocalStorage.dll.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Authorization.dll.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\Blazored.LocalStorage.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Authorization.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\jY1saY08.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\BeiVxQb3.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\3OztfV10.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\tL4OuL+B.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\1vOE9CYk.gz
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\build-gz\d0jHBkQ+.gz

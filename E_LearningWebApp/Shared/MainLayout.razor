@@ -8,6 +8,14 @@
     <main>
         <div class="top-row px-4">
             <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            @*<AuthorizeView>
+                <Authorized>
+                    <h3>Welcome @Fullname</h3>
+                </Authorized>
+                <NotAuthorized>
+                    <h3>You have to Login</h3>
+                </NotAuthorized>
+            </AuthorizeView>*@
         </div>
 
         <article class="content px-4">
@@ -15,3 +23,24 @@
         </article>
     </main>
 </div>
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string Name = string.Empty;
+    string Surname = string.Empty;
+    string Fullname = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthState;
+
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            Name = authState.User.FindFirst(ClaimTypes.Name).Value;
+            Surname = authState.User.FindFirst(ClaimTypes.Surname).Value;
+
+            Fullname = Name + " " + Surname;
+        }
+    }
+}

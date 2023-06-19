@@ -1,5 +1,7 @@
 ﻿@page "/login"
-@inject NavigationManager navManager
+@inject IAuthenticationService AuthService
+@inject NavigationManager NavManager
+@inject IConfiguration _config
 
 <section class="vh-100">
   <br />
@@ -12,7 +14,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <EditForm Model="model" OnValidSubmit="ExecuteLogin">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <h2>Sign in</h2>
           </div>
@@ -20,19 +22,28 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid Username" />
+              placeholder="Enter a valid Username" @bind="model.Username" />
             <label class="form-label" for="form3Example3">Username</label>
+            <ValidationMessage For="@(() => model.Username)" />
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
+              placeholder="Enter password" @bind="model.Password"/>
             <label class="form-label" for="form3Example4">Password</label>
+            <ValidationMessage For="@(() => model.Password)" />
           </div>
 
+          @if (showAuthenticationError)
+          {
+            <div class="text-danger">
+                @authenticationErrorText
+            </div>
+          }
+
           <div class="text-center text-lg-start  mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: #39bad8;">
+            <button @onclick="ExecuteLogin" type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem; background-color: #39bad8;">
                 Login
             </button>
             <br />
@@ -40,7 +51,14 @@
             <h5>Don't have an account? <a class="link-danger" href="register">Register</a></h5>
           </div>
 
-        </form>
+        </EditForm>
+        @if (hasPressedLogin)
+        {
+            <br />
+            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        }
       </div>
     </div>
   </div>
@@ -61,5 +79,35 @@
 </section>
 
 @code {
-    
+    private bool hasPressedLogin = false;
+    private string api = string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        api = _config.GetValue<string>("api");
+    }
+
+    private LoginModel model = new LoginModel();
+
+    private bool showAuthenticationError = false;
+    private string authenticationErrorText = "";
+
+    private async Task ExecuteLogin()
+    {
+        hasPressedLogin = !hasPressedLogin;
+
+        showAuthenticationError = false;
+
+        string result = await AuthService.Login(model);
+
+        if (result is not null)
+        {
+            NavManager.NavigateTo("/");
+        }
+        else
+        {
+            hasPressedLogin = !hasPressedLogin;
+            authenticationErrorText = "There was an Error when trying to login!";
+            showAuthenticationError = true;
+        }
+    }
 }

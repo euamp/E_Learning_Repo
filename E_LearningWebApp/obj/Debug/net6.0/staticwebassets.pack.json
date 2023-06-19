@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\E_LearningWebApp.styles.css"
     },
     {
+      "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
       "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
