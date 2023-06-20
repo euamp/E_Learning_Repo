@@ -1,4 +1,6 @@
 ﻿@page "/register"
+@inject IAuthenticationService authService
+@inject NavigationManager NavManager
 
 <div class="container">
     <section class="bg-image"
@@ -11,42 +13,53 @@
                             <div class="card-body p-5">
                                 <h2 class="text-center mb-5">Create an account</h2>
 
-                                <form>
+                                <EditForm Model="@registerModel" OnValidSubmit="ValidSubmit">
+                                    <DataAnnotationsValidator />
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example1cg">Enter your First name</label>
+                                        @*<input type="text" id="form3Example1cg" class="form-control form-control-lg" />*@
+                                        <label class="form-label" for="first-name">Enter your First name</label>
+                                        <InputText id="first-name" class="form-control form-control-lg" @bind-Value="registerModel.Firstname" />
+                                        <ValidationMessage For="@(() => registerModel.Firstname)" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example1cg">Enter your Last name</label>
+                                        @*<input type="text" id="form3Example1cg" class="form-control form-control-lg" />*@
+                                        <label class="form-label" for="last-name">Enter your Last name</label>
+                                        <InputText id="last-name" class="form-control form-control-lg" @bind-Value="registerModel.Lastname" />
+                                        <ValidationMessage For="@(() => registerModel.Lastname)" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example3cg">Enter your Email</label>
+                                        @*<input type="email" id="form3Example3cg" class="form-control form-control-lg" />*@
+                                        <label class="form-label" for="email">Enter your Email</label>
+                                        <InputText id="email" class="form-control form-control-lg" @bind-Value="registerModel.Email" />
+                                        <ValidationMessage For="@(() => registerModel.Email)" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input id="form3Example4cg" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example4cg">Enter your Username</label>
+                                        @*<input id="form3Example4cg" class="form-control form-control-lg" />*@
+                                        <label class="form-label" for="username">Enter your Username</label>
+                                        <InputText id="username" class="form-control form-control-lg" @bind-Value="registerModel.Username" />
+                                        <ValidationMessage For="@(() => registerModel.Username)" />
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                                        <label class="form-label" for="form3Example4cdg">Enter your Password</label>
+                                        @*<input type="password" id="form3Example4cdg" class="form-control form-control-lg" />*@
+                                        <label class="form-label" for="password">Enter your Password</label>
+                                        <InputText type="password" id="password" class="form-control form-control-lg" @bind-Value="registerModel.Password" />
+                                        <ValidationMessage For="@(() => registerModel.Password)" />
                                     </div>
 
-                                    @*<div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                                        <label class="form-check-label" for="form2Example3g">
-                                            I agree all statements in <a href="" class="text-body"><u>Terms of service</u></a>
-                                        </label>
-                                    </div>*@
+                                    @if (showAuthenticationError)
+                                    {
+                                        <div class="text-danger">
+                                            @errorMessage
+                                        </div>
+                                    }
 
                                     <div class="d-flex justify-content-center">
-                                        <button type="button"
+                                        <button type="button" @onclick="ValidSubmit"
                                                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-white" style="background-color: #39bad8">
                                             Register
                                         </button>
@@ -56,8 +69,14 @@
                                         Already have an account? <a href="login" class="fw-bold text-body"><u>Login here</u></a>
                                     </p>
 
-                                </form>
-
+                                </EditForm>
+                                @if (hasPressedRegister)
+                                {
+                                    <br />
+                                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -69,5 +88,51 @@
 
 
 @code {
+    SignUpModel registerModel = new SignUpModel();
+    LoginModel loginModel = new LoginModel();
+    string errorMessage = string.Empty;
+    private bool hasPressedRegister = false;
+    private bool showAuthenticationError = false;
 
+    private async Task ValidSubmit()
+    {
+        hasPressedRegister = !hasPressedRegister;
+        showAuthenticationError = false;
+        errorMessage = "";
+
+        try
+        {
+            var registration = await authService.Register(registerModel);
+
+
+            loginModel.Username = registerModel.Username;
+            loginModel.Password = registerModel.Password;
+
+            var result = await authService.Login(loginModel);
+
+            if (registration is not null)
+            {
+                if (result is not null)
+                {
+                    NavManager.NavigateTo("/");
+                }
+                else
+                {
+                    hasPressedRegister = !hasPressedRegister;
+                    showAuthenticationError = true;
+                    errorMessage = "The registration worked, but there was an Error when trying to login!";
+                }
+            }
+            else
+            {
+                hasPressedRegister = !hasPressedRegister;
+                showAuthenticationError = true;
+                errorMessage = "There was an Error when trying to register!";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
 }
