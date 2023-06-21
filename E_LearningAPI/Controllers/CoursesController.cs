@@ -49,6 +49,7 @@ public class CoursesController : ControllerBase
             Course course = new Course();
             course.CourseName = courseCreateDTO.CourseName;
             course.Description = courseCreateDTO.Description;
+            course.Image = courseCreateDTO.Image;
 
             _context.Courses.Add(course);
             _context.SaveChanges();
@@ -77,6 +78,7 @@ public class CoursesController : ControllerBase
                 .ExecuteUpdate(s => s
                     .SetProperty(n => n.CourseName, n => courseDTO.CourseName)
                     .SetProperty(d => d.Description, d => courseDTO.Description)
+                    .SetProperty(i => i.Image, i => courseDTO.Image)
                 );
 
                 return Ok(courseDTO);

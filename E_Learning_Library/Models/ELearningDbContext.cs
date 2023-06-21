@@ -67,6 +67,7 @@ public partial class ELearningDbContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("Course_name");
             entity.Property(e => e.Description).HasMaxLength(1000);
+            entity.Property(e => e.Image).HasMaxLength(2000);
         });
 
         modelBuilder.Entity<Question>(entity =>

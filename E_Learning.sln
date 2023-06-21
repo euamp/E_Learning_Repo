@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_LearningAPI", "E_Learning
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_Learning_Library", "E_Learning_Library\E_Learning_Library.csproj", "{DC76A555-C508-45DB-8097-94634D6E48B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E_LearningWebApp", "E_LearningWebApp\E_LearningWebApp.csproj", "{B30CC299-744A-443D-8B74-D5020F858366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E_LearningWebApp", "E_LearningWebApp\E_LearningWebApp.csproj", "{B30CC299-744A-443D-8B74-D5020F858366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,44 @@
+﻿@page "/jobs"
+@inject IConfiguration _config
+@inject HttpClient _client
+
+<div class="row">
+    @foreach (var course in courses)
+    {
+        <div class="card col-md-3" style="width: 18rem; margin: 1%;">
+            <img src="@course.Image" class="card-img-top" alt="an image">
+            <div class="card-body">
+                <h5 class="card-title">@course.CourseName</h5>
+                <p class="card-text">@course.Description</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code {
+    List<Course> courses = new List<Course>();
+    private string coursesEndpoint = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await getCourses();
+    }
+
+    private async Task<List<Course>> getCourses()
+    {
+        coursesEndpoint = _config["getAllCoursesEndpoint"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Course>>(coursesEndpoint);
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+}

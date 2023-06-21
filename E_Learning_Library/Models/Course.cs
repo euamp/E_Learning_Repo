@@ -11,6 +11,8 @@ public partial class Course
 
     public string? Description { get; set; }
 
+    public string? Image { get; set; }
+
     public virtual ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
