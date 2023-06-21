@@ -77,6 +77,14 @@
       "PackagePath": "staticwebassets\\images\\blue.jpg"
     },
     {
+      "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\blue_mountains.jpg",
+      "PackagePath": "staticwebassets\\images\\blue_mountains.jpg"
+    },
+    {
+      "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\blue_wall.jpg",
+      "PackagePath": "staticwebassets\\images\\blue_wall.jpg"
+    },
+    {
       "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\laptop_man.jpg",
       "PackagePath": "staticwebassets\\images\\laptop_man.jpg"
     },

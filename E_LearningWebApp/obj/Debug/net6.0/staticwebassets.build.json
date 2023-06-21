@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mu6WZkk5jvVykyE2qpWLlhbB1h8tY3jQCQ+1Davy6Xk=",
+  "Hash": "GQR32m3m6IrE352EgQf1w9TqdwyrL9SHvdJFXN0PRvQ=",
   "Source": "E_LearningWebApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -7172,6 +7172,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\blue.jpg"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\blue_mountains.jpg",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/blue_mountains.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\blue_mountains.jpg"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\blue_wall.jpg",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "images/blue_wall.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\blue_wall.jpg"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\images\\laptop_man.jpg",
