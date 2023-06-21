@@ -1,16 +1,61 @@
 ﻿@page "/jobs"
 @inject IConfiguration _config
 @inject HttpClient _client
+@inject NavigationManager navManager
+
+<p>
+    <h4>
+        Στην πληροφορική υπάρχουν δεκάδες υποκλάδοι και εξειδικεύσεις. 
+        Η κάθε τεχνολογία και η κάθε αγορά δημιουργεί συνεχώς νέα επαγγέλματα, 
+        νέους ρόλους εργασίας και νέες ευκαιρίες. 
+        Παρακάτω αναφέρονται κάποια από τα πιο συνηθισμένα επαγγέλματα 
+        στον Κλάδο της Πληροφορικής.
+    </h4>
+    <br />
+    <ul>
+        <li>Software Developer/Engineer</li>
+        <li>Web Developer</li>
+        <li>Mobile App Developer</li>
+        <li>UI/UX Designer</li>
+        <li>Data Scientist</li>
+        <li>Machine Learning Engineer</li>
+        <li>Artificial Intelligence (AI) Engineer</li>
+        <li>Network Administrator</li>
+        <li>Cybersecurity Analyst</li>
+        <li>Game Developer</li>
+        <li>DevOps Engineer</li>
+        <li>Cloud Solutions Architect</li>
+        <li>Επαγγελματίες Υγείας Πληροφορικής</li>
+        <li>Αρχιτέκτονες πληροφοριών (Information architects)</li>
+        <li>Καθηγητές (Professors)</li>
+    </ul>
+    <br />
+    <h4>
+        Τι καθήκοντα έχει η κάθε ειδικότητα και τι ικανότητες χρειάζεται 
+        κάποιος για να ασχοληθεί με αυτές; 
+        Θα προσπαθήσουμε να δώσουμε ένα πλάνο του τομέα της πληροφορικής 
+        για να παρέχουμε μια κατεύθυνση σε εσάς που ενδιαφέρεστε να ξεκινήσετε  
+        την καριέρα σας.
+    </h4>
+    
+</p>
+
+<hr />
 
 <div class="row">
     @foreach (var course in courses)
     {
-        <div class="card col-md-3" style="width: 18rem; margin: 1%;">
-            <img src="@course.Image" class="card-img-top" alt="an image">
+        <div class="card col-md-4 shadow p-3 mb-5 bg-white rounded" style="width: 18rem; margin: 1%;">
+            <div class="card-header bg-white">
+                <img src="@course.Image" class="card-img-top" alt="an image">
+            </div>
             <div class="card-body">
                 <h5 class="card-title">@course.CourseName</h5>
                 <p class="card-text">@course.Description</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer bg-white">
+                <a @onclick="() =>  NavigateToInfoPage(course.CourseName)" class="btn btn-primary">Checkout</a> |
+                <a @onclick="NavigateToQuiz" class="btn btn-success">Take a Quiz</a>
             </div>
         </div>
     }
@@ -41,5 +86,18 @@
             Console.Out.WriteLineAsync(ex.Message);
             return null;
         }
+    }
+
+    private void NavigateToInfoPage(string jobName)
+    {
+        jobName = jobName.Replace(" ","_").Replace("/","_");
+        string navigationLink = "/info_" + jobName;
+        Console.WriteLine("Info_" + jobName);
+        navManager.NavigateTo(navigationLink);
+    }
+
+    private void NavigateToQuiz()
+    {
+        navManager.NavigateTo("/login");
     }
 }

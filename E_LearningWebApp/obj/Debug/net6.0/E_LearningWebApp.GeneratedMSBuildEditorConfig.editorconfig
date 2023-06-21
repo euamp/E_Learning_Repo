@@ -28,6 +28,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Info_Machine_Learning_Engineer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5mb19NYWNoaW5lX0xlYXJuaW5nX0VuZ2luZWVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Info_Software_Developer_Engineer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5mb19Tb2Z0d2FyZV9EZXZlbG9wZXJfRW5naW5lZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Jobs.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9icy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
