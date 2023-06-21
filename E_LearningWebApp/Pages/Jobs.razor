@@ -90,7 +90,7 @@
 
     private void NavigateToInfoPage(string jobName)
     {
-        jobName = jobName.Replace(" ","_").Replace("/","_");
+        jobName = jobName.Replace(" ", "_").Replace("/", "_").Replace("(", "").Replace(")", "");
         string navigationLink = "/info_" + jobName;
         Console.WriteLine("Info_" + jobName);
         navManager.NavigateTo(navigationLink);
