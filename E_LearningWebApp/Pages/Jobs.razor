@@ -60,16 +60,41 @@
         </div>
     }
 </div>
+@if (notLoadedImages)
+{
+    <br />
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>    
+}
 
 
 @code {
-    // Yeah v2
     List<Course> courses = new List<Course>();
     private string coursesEndpoint = string.Empty;
+    private bool notLoadedImages = true;
 
     protected override async Task OnInitializedAsync()
     {
         courses = await getCourses();
+        notLoadedImages = !notLoadedImages;
     }
 
     private async Task<List<Course>> getCourses()
