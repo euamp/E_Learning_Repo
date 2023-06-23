@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject NavigationManager navManager
 
 <PageTitle>Index</PageTitle>
 
@@ -114,12 +115,13 @@
                 <p class="card-text">Με τη βοήθειά μας επίλεξε την καριέρα που σου ταιριάζει! </p>
 
                 <div id="careerGoalSection" class="d-flex justify-content-around flex-wrap">
-                    <button type="button" class="btn btn-secondary">C# Developer</button>
-                    <button type="button" class="btn btn-secondary">Web Developer</button>
-                    <button type="button" class="btn btn-secondary">C# Web Developer</button>
-                    <button type="button" class="btn btn-secondary">C# Developer</button>
-                    <button type="button" class="btn btn-secondary">Web Developer</button>
-                    <button type="button" class="btn btn-secondary">C# Web Developer</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Software_Developer")'>Software Developer</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Web_Developer")'>Web Developer</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_UI_UX_Designer")'>UX Designer</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Data_Scientist")'>Data scientist</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Cybersecurity_Analyst")'>Cybersecurity Analyst</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Mobile_App_Developer")'>Mobile App Developer</button>
+                    <button type="button" class="btn btn-secondary" @onclick='() => NavigateTo("/info_Game_Developer")'>Game Developer</button>
                 </div>
             </div>
         </div>
@@ -138,5 +140,10 @@
     protected override void OnInitialized()
     {
         Console.WriteLine("Hi eva");
+    }
+
+    private void NavigateTo(string navigationLink)
+    {
+        navManager.NavigateTo(navigationLink);
     }
 }
