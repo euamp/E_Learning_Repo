@@ -1,0 +1,298 @@
+﻿@page "/Software_Developer_Quiz"
+@inject IConfiguration _config
+@inject HttpClient _client
+
+<style>
+    body {
+        background-color: #333;
+    }
+</style>
+
+<div class="container mt-sm-5 my-1">
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">
+                Small Business Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Nonprofit Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Journalist or Activist
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Other
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">
+                Small Business Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Nonprofit Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Journalist or Activist
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Other
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">
+                Small Business Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Nonprofit Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Journalist or Activist
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Other
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">
+                Small Business Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Nonprofit Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Journalist or Activist
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Other
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+            <label class="options">
+                Small Business Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Nonprofit Owner or Employee
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Journalist or Activist
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+            <label class="options">
+                Other
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    @if (notLoadedQuiz == true)
+    {
+        <br />
+        <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        @foreach (var item in quiz.Questions)
+        {
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class="py-2 h5"><b>Q. @item.QuestionText</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                    <label class="options">
+                        Small Business Owner or Employee
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">
+                        Nonprofit Owner or Employee
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">
+                        Journalist or Activist
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="options">
+                        Other
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div>
+
+            <br />
+            <hr />
+            <br />
+        }
+    }
+
+    
+
+
+    <div class="d-flex align-items-center pt-3">
+        <div id="prev">
+            <button class="btn btn-primary">Previous</button>
+        </div>
+        &nbsp
+        &nbsp
+        &nbsp
+        <div class="ml-auto mr-sm-5">
+            <button class="btn btn-success">Next</button>
+        </div>
+    </div>
+</div>
+
+
+
+<br />
+<br />
+<br />
+
+
+@code {
+    //List<Question> questions = new List<Question>();
+    //private string questionsEndpoint = string.Empty;
+    //private bool notLoadedQuestions = true;
+
+    Quiz quiz = new Quiz();
+    private string quizEndpoint = string.Empty;
+    private bool notLoadedQuiz = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //questions = await getQuestions();
+        //notLoadedQuestions = !notLoadedQuestions;
+
+        quiz = await getQuiz();
+        notLoadedQuiz = !notLoadedQuiz;
+    }
+
+    private async Task<Quiz> getQuiz()
+    {
+        quizEndpoint = _config["getOneQuiz"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<Quiz>(quizEndpoint+"2002");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+
+
+    }
+
+    //private async Task<List<Question>> getQuestions()
+    //{
+    //    questionsEndpoint = _config["getAllQuestionsEndpoint"];
+
+    //    try
+    //    {
+    //        var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint);
+    //        return result;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Console.Out.WriteLineAsync(ex.Message);
+    //        return null;
+    //    }
+
+
+    //}
+
+}

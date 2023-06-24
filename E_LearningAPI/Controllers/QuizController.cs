@@ -36,10 +36,13 @@ public class QuizController : ControllerBase
     {
         // TODO: Προσθέτω τα Include() Που έχει και από πάνω
         var quiz = _context.Quizzes
-            .SingleOrDefault(x => x.QuizId == id);
+            .Where(i => i.QuizId == id)
+            .Include(q => q.Questions)
+            .ThenInclude(a => a.Answers);
+            //.SingleOrDefault(x => x.QuizId == id);
 
         if (quiz == null)
-        {
+        {   
             return NotFound("Quiz Not Found");
         }
         else
