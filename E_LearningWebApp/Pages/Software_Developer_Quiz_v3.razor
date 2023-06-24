@@ -1,0 +1,136 @@
+﻿@page "/software_Developer_Quiz_v3"
+@inject IConfiguration _config
+@inject HttpClient _client
+
+<style>
+    body {
+        background-color: #333;
+    }
+</style>
+
+<div class="mask" style="background-color: #21bf73;">
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Software Developer Quiz</h1>
+            <h4 class="mb-3 d-flex justify-content-center align-items-center ">Απάντησε στις παρακάτω ερωτήσεις και δοκίμασε τις γνώσεις σου!</h4>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-sm-5 my-1">
+    @if (notLoadedQuestions == true)
+    {
+        <br />
+        <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else
+    {       
+        <div class="question ml-sm-5 pl-sm-5 pt-2">
+            <div class="py-2 h5"><b>Q. @questions[questionsIndex].QuestionText.Trim()</b></div>
+            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                <EditForm Model="userAnswer" OnValidSubmit="OptionSelected">
+                    <InputRadioGroup id="@questions[questionsIndex].QuestionId" @bind-Value="userAnswer.QuestionId">
+                        @foreach (var answer in questions[questionsIndex].Answers)
+                        {
+                            @*<label class="options">
+                            @answer.AnswerText.Trim()
+                            <input type="radio" id="@answer.AnswerId" name="@questions[questionsIndex].QuestionId">
+                            <span class="checkmark"></span>
+                            </label>*@
+                            <InputRadio Value="@answer.AnswerId"/> @answer.AnswerText.Trim() <br />
+                        }
+                    </InputRadioGroup>
+
+                    <br />
+
+                    <button class="btn btn-success" type="submit" >next</button>
+                </EditForm>
+            </div>
+
+            <br />
+
+            @*<div class="ml-auto mr-sm-5">
+                <button class="btn btn-success" onclick="() => OptionSelected()">next</button>
+            </div>*@
+        </div>
+
+        <br />
+        <hr />
+        <br />
+    }
+
+
+
+
+    @*<div class="d-flex align-items-center pt-3">
+        <div id="prev">
+            <button class="btn btn-primary">Previous</button>
+        </div>
+        &nbsp
+        &nbsp
+        &nbsp
+        <div class="ml-auto mr-sm-5">
+            <button class="btn btn-success" onclick="EvaluateAnswers">Submit</button>
+        </div>
+    </div>*@
+</div>
+
+@code {
+    List<Question> questions = new List<Question>();
+    private string questionsEndpoint = string.Empty;
+    private bool notLoadedQuestions = true;
+    int questionsIndex = 0;
+    UserAnswer userAnswer = new UserAnswer()
+    {
+        User_id = 1,
+        QuizId = 1
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        questions = await getQuestions();
+        notLoadedQuestions = !notLoadedQuestions;
+        questionsIndex = 0;
+    }
+
+    private async Task<List<Question>> getQuestions()
+    {
+        questionsEndpoint = _config["getAllQuestionsFromOneQuiz"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint + "2002");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+
+    private void OptionSelected()
+    {
+        questionsIndex++;
+        Console.WriteLine(questionsIndex.ToString());
+    }
+}

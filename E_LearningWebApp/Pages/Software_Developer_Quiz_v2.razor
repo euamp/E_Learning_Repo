@@ -1,0 +1,132 @@
+﻿@page "/software_Developer_Quiz_v2"
+@inject IConfiguration _config
+@inject HttpClient _client
+
+@*<div class="container">
+    <div class="quiz">
+        <div class="app-title">
+            Software Developer Quiz
+        </div>
+        <div class="quiz-header">
+            @questions[0].QuestionText
+        </div>
+        <div class="quiz-body">
+            @foreach(var item in questions[0].Answers)
+            {
+                <div>
+                    @item.AnswerText
+                </div>
+            }
+        </div>
+    </div>
+</div>*@
+
+<div class="container">
+    <div class="quiz">
+        @if (questionIndex < questions.Count())
+        {
+            <div class="app-title">
+                Quizzing!
+            </div>
+            <div class="quiz-header">
+                @questions[questionIndex].QuestionText
+            </div>
+            <div class="quiz-body">
+                @foreach (var option in questions[questionIndex].Answers)
+                {
+                    <OptionCard Option="@option" OnOptionSelected="OptionSelected">@option.AnswerText</OptionCard>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="app-title">
+                @if (score > (questions.Count / 2))
+                {
+                    <img src="https://img.icons8.com/ios/100/000000/prize--v1.png" />
+                }
+                else
+                {
+                    <img src="https://img.icons8.com/color/96/000000/lose.png" />
+                }
+            </div>
+            <div class="app-title">
+                @(score > (questions.Count() / 2) ? "Congratulation" : "Better Luck Next Time")
+            </div>
+            <div class="quiz-header">
+                <b>You scored @score points!</b>
+            </div>
+            <div class="quiz-footer">
+                <button class="next-btn">Play Again</button>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    List<Question> questions = new List<Question>();
+    private string questionsEndpoint = string.Empty;
+    private bool notLoadedQuestions = true;
+    private int num;
+    UserAnswer userAnswer = new UserAnswer();
+    List<UserAnswer> listOfAnswers = new List<UserAnswer>();
+
+    int questionIndex = 0;
+    int score = 0;
+
+    //Quiz quiz = new Quiz();
+    //private string quizEndpoint = string.Empty;
+    //private bool notLoadedQuiz = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        questions = await getQuestions();
+        notLoadedQuestions = !notLoadedQuestions;
+
+        //quiz = await getQuiz();
+        //notLoadedQuiz = !notLoadedQuiz;
+    }
+
+    private async Task<List<Question>> getQuestions()
+    {
+        questionsEndpoint = _config["getAllQuestionsFromOneQuiz"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint + "2002");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+
+
+    }
+
+    protected void OptionSelected(string option)
+    {
+        
+        questionIndex++;
+    }
+
+    //private async Task<Quiz> getQuiz()
+    //{
+    //    quizEndpoint = _config["getOneQuiz"];
+
+    //    try
+    //    {
+    //        var result = await _client.GetFromJsonAsync<Quiz>(quizEndpoint+"2002");
+    //        return result;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Console.Out.WriteLineAsync(ex.Message);
+    //        return null;
+    //    }
+
+
+    //}
+
+}
