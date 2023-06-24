@@ -45,6 +45,25 @@ public class QuestionsController : ControllerBase
         }
     }
 
+    // GET api/Questions/someQuestions/5
+    [HttpGet("someQuestions/{id}")]
+    public ActionResult<Question> GetSomeQuestions(int id)
+    {
+        // TODO: Προσθέτω τα Include() Που έχει και από πάνω
+        var question = _context.Questions
+            .Where(i => i.QuizId == id)
+            .Include(a => a.Answers);
+
+        if (question is null)
+        {
+            return NotFound("Question Not Found");
+        }
+        else
+        {
+            return Ok(question);
+        }
+    }
+
     // POST api/Questions
     [HttpPost]
     public ActionResult Post(QuestionCreateDTO questionCreateDTO)

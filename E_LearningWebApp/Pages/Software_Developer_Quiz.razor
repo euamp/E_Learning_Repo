@@ -9,7 +9,7 @@
 </style>
 
 <div class="container mt-sm-5 my-1">
-    <div class="question ml-sm-5 pl-sm-5 pt-2">
+    @*<div class="question ml-sm-5 pl-sm-5 pt-2">
         <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
             <label class="options">
@@ -156,9 +156,9 @@
 
     <br />
     <hr />
-    <br />
+    <br />*@
 
-    @if (notLoadedQuiz == true)
+    @if (notLoadedQuestions == true)
     {
         <br />
         <div class="d-flex justify-content-center">
@@ -184,31 +184,19 @@
     }
     else
     {
-        @foreach (var item in quiz.Questions)
+        @foreach (var item in questions)
         {
             <div class="question ml-sm-5 pl-sm-5 pt-2">
                 <div class="py-2 h5"><b>Q. @item.QuestionText</b></div>
                 <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                    <label class="options">
-                        Small Business Owner or Employee
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">
-                        Nonprofit Owner or Employee
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">
-                        Journalist or Activist
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="options">
-                        Other
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
+                    @foreach (var answer in item.Answers)
+                    {
+                        <label class="options">
+                            @answer.AnswerText
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                    }
                 </div>
             </div>
 
@@ -242,30 +230,30 @@
 
 
 @code {
-    //List<Question> questions = new List<Question>();
-    //private string questionsEndpoint = string.Empty;
-    //private bool notLoadedQuestions = true;
+    List<Question> questions = new List<Question>();
+    private string questionsEndpoint = string.Empty;
+    private bool notLoadedQuestions = true;
 
-    Quiz quiz = new Quiz();
-    private string quizEndpoint = string.Empty;
-    private bool notLoadedQuiz = true;
+    //Quiz quiz = new Quiz();
+    //private string quizEndpoint = string.Empty;
+    //private bool notLoadedQuiz = true;
 
     protected override async Task OnInitializedAsync()
     {
-        //questions = await getQuestions();
-        //notLoadedQuestions = !notLoadedQuestions;
+        questions = await getQuestions();
+        notLoadedQuestions = !notLoadedQuestions;
 
-        quiz = await getQuiz();
-        notLoadedQuiz = !notLoadedQuiz;
+        //quiz = await getQuiz();
+        //notLoadedQuiz = !notLoadedQuiz;
     }
 
-    private async Task<Quiz> getQuiz()
+    private async Task<List<Question>> getQuestions()
     {
-        quizEndpoint = _config["getOneQuiz"];
+        questionsEndpoint = _config["getAllQuestionsFromOneQuiz"];
 
         try
         {
-            var result = await _client.GetFromJsonAsync<Quiz>(quizEndpoint+"2002");
+            var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint+"2002");
             return result;
         }
         catch (Exception ex)
@@ -277,13 +265,13 @@
 
     }
 
-    //private async Task<List<Question>> getQuestions()
+    //private async Task<Quiz> getQuiz()
     //{
-    //    questionsEndpoint = _config["getAllQuestionsEndpoint"];
+    //    quizEndpoint = _config["getOneQuiz"];
 
     //    try
     //    {
-    //        var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint);
+    //        var result = await _client.GetFromJsonAsync<Quiz>(quizEndpoint+"2002");
     //        return result;
     //    }
     //    catch (Exception ex)
