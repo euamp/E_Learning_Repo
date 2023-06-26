@@ -43,73 +43,95 @@
         </div>
     }
     else
-    {       
-        <div class="question ml-sm-5 pl-sm-5 pt-2">
-            <div class="py-2 h5"><b>Q. @questions[questionsIndex].QuestionText.Trim()</b></div>
-            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                <EditForm Model="userAnswer" OnValidSubmit="OptionSelected">
-                    <InputRadioGroup id="@questions[questionsIndex].QuestionId" @bind-Value="userAnswer.QuestionId">
-                        @foreach (var answer in questions[questionsIndex].Answers)
+    {
+        @if (questionsIndex < questions.Count)
+        {
+            <div class="d-flex justify-content-center">
+                <div class="question ml-sm-5 pl-sm-5 pt-2">
+                    <div class="py-2 h4"><b>Q. @questions[questionsIndex].QuestionText.Trim()</b></div>
+                    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                        <EditForm Model="@userAnswer" OnValidSubmit="OptionSelected">
+                            <InputRadioGroup id="@questions[questionsIndex].QuestionId" @bind-Value="userAnswer.AnswerId">
+                                @foreach (var answer in questions[questionsIndex].Answers)
+                                {
+                                    <label class="options">
+                                        <h5>
+                                            <InputRadio Value="@answer.AnswerId" style="cursor: pointer;" /> @answer.AnswerText.Trim()
+                                        </h5>
+                                    </label>
+
+                                }
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => userAnswer.AnswerId)" />
+
+                            <br />
+
+                            <button class="btn btn-success" type="submit">Next</button>
+                        </EditForm>
+                        @if (answerHasBeenPosted = false)
                         {
-                            @*<label class="options">
-                            @answer.AnswerText.Trim()
-                            <input type="radio" id="@answer.AnswerId" name="@questions[questionsIndex].QuestionId">
-                            <span class="checkmark"></span>
-                            </label>*@
-                            <InputRadio Value="@answer.AnswerId"/> @answer.AnswerText.Trim() <br />
+                            <br />
+                            <div class="spinner-grow text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         }
-                    </InputRadioGroup>
-
-                    <br />
-
-                    <button class="btn btn-success" type="submit" >next</button>
-                </EditForm>
+                        @if (showMessage)
+                        {
+                            <br />
+                            <div class="alert alert-dismissible alert-danger">
+                                Παρακαλώ επιλέξτε μία απάντηση για να συνεχίσετε!
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
+            
 
-            <br />
+            <hr />
+            <h5 style="text-align: right;">@(questionsIndex + 1) / @questions.Count</h5>
+        }
+        else
+        {
+            <div class="container">
+                <h2>Συγχαρητήρια! Ολοκλήρωσες επιτυχώς το Quiz για <b>Software Developers</b></h2>
+                <br />
+                <button class="btn btn-lg btn-success" type="button">Πήγαινε σε επόμενο Quiz</button>
+            </div>
+        }
 
-            @*<div class="ml-auto mr-sm-5">
-                <button class="btn btn-success" onclick="() => OptionSelected()">next</button>
-            </div>*@
-        </div>
-
-        <br />
-        <hr />
-        <br />
     }
-
-
-
-
-    @*<div class="d-flex align-items-center pt-3">
-        <div id="prev">
-            <button class="btn btn-primary">Previous</button>
-        </div>
-        &nbsp
-        &nbsp
-        &nbsp
-        <div class="ml-auto mr-sm-5">
-            <button class="btn btn-success" onclick="EvaluateAnswers">Submit</button>
-        </div>
-    </div>*@
 </div>
 
 @code {
     List<Question> questions = new List<Question>();
     private string questionsEndpoint = string.Empty;
     private bool notLoadedQuestions = true;
+    private bool answerHasBeenPosted = true;
     int questionsIndex = 0;
     UserAnswer userAnswer = new UserAnswer()
     {
         User_id = 1,
-        QuizId = 1
+        QuizId = 2002
     };
+    private string answerEndpoint = string.Empty;
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string userID = string.Empty;
+
+    private bool IsChecked = true;
+    private bool showMessage = false;
 
     protected override async Task OnInitializedAsync()
     {
         questions = await getQuestions();
         notLoadedQuestions = !notLoadedQuestions;
         questionsIndex = 0;
+
+        var authState = await AuthState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
+        }
     }
 
     private async Task<List<Question>> getQuestions()
@@ -128,9 +150,69 @@
         }
     }
 
-    private void OptionSelected()
+    private async void OptionSelected()
     {
-        questionsIndex++;
-        Console.WriteLine(questionsIndex.ToString());
+        IsChecked = userAnswer.AnswerId != null;
+
+        if (IsChecked)
+        {
+            showMessage = false;
+            questionsIndex++;
+
+            answerEndpoint = _config["getOneAnswer"];
+
+            try
+            {
+                string url = answerEndpoint + userAnswer.AnswerId.ToString();
+                var result = await _client.GetFromJsonAsync<Answer>(url);
+
+                UserAnswer ua = new UserAnswer();
+                ua.User_id = int.Parse(userID);
+                ua.QuizId = userAnswer.QuizId;
+                ua.AnswerId = userAnswer.AnswerId;
+                ua.QuestionId = result?.QuestionId;
+
+
+                answerHasBeenPosted = false;
+                var answerPostResult = makePostRequestForUserAnswer(ua);
+                answerHasBeenPosted = true;
+
+                //userAnswer.QuestionId = result.QuestionId
+
+                Console.WriteLine(ua.User_id.ToString());
+                Console.WriteLine(ua.QuizId.ToString());
+                Console.WriteLine(ua.QuestionId.ToString());
+                Console.WriteLine(ua.AnswerId.ToString());
+
+                Console.WriteLine("-IsChecked-" + IsChecked.ToString());
+                userAnswer.AnswerId = null;
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLineAsync(ex.Message);
+            }
+        }
+        else
+        {
+            showMessage = true;
+        }
+
+          
+    }
+
+    private async Task<string> makePostRequestForUserAnswer(UserAnswer ua)
+    {
+        string api = _config["postOneUserAnswer"];
+
+        var postResult = await _client.PostAsJsonAsync(api, ua);
+
+        var result = await postResult.Content.ReadAsStringAsync();
+
+        if (postResult.IsSuccessStatusCode == false)
+        {
+            return null;
+        }
+
+        return result;
     }
 }

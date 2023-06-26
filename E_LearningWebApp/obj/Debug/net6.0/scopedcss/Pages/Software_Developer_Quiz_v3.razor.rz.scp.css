@@ -1,14 +1,12 @@
-/*import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');*/
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');[b-02e7fc4ebt]
 
-/** {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}*/
-
-/*body {
-    background-color: #333;
-}*/
+ .hide_circle {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
 
 body[b-02e7fc4ebt] {
     background-color: #333;
