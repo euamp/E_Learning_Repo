@@ -833,3 +833,17 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Web_Developer_Quiz_solutions.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Mobile_App_Developer_Quiz.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Mobile_App_Developer_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\UI_UX_Designer_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\UI_UX_Designer_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Data_Scientist_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Data_Scientist_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Machine_Learning_Engineer_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Machine_Learning_Engineer_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Network_Administrator_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Network_Administrator_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Cybersecurity_Analyst_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Cybersecurity_Analyst_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Game_Developer_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Game_Developer_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Professors_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Professors_Quiz_Solutions.razor.rz.scp.css

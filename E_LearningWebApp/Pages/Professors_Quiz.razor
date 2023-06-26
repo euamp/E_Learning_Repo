@@ -1,0 +1,245 @@
+﻿@page "/Professors_Quiz"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
+
+<style>
+    body {
+        background-color: #333;
+    }
+</style>
+
+<div class="mask" style="background-color: #21bf73;">
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Professors Quiz</h1>
+            <h4 class="mb-3 d-flex justify-content-center align-items-center ">Απάντησε στις παρακάτω ερωτήσεις και δοκίμασε τις γνώσεις σου!</h4>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-sm-5 my-1">
+    @if (notLoadedQuestions == true)
+    {
+        <br />
+        <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-success" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-grow text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else
+    {
+        @if (questionsIndex < questions.Count)
+        {
+            <div class="d-flex justify-content-center">
+                <div class="question ml-sm-5 pl-sm-5 pt-2">
+                    <div class="py-2 h4"><b>Q. @questions[questionsIndex].QuestionText.Trim()</b></div>
+                    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                        <EditForm Model="@userAnswer" OnValidSubmit="OptionSelected">
+                            <InputRadioGroup id="@questions[questionsIndex].QuestionId" @bind-Value="userAnswer.AnswerId">
+                                @foreach (var answer in questions[questionsIndex].Answers)
+                                {
+                                    <label class="options">
+                                        <h5>
+                                            <InputRadio Value="@answer.AnswerId" style="cursor: pointer;" /> @answer.AnswerText.Trim()
+                                        </h5>
+                                    </label>
+
+                                }
+                            </InputRadioGroup>
+                            <ValidationMessage For="@(() => userAnswer.AnswerId)" />
+
+                            <br />
+
+                            <button class="btn btn-success" type="submit">Next</button>
+                        </EditForm>
+                        @if (answerHasBeenPosted = false)
+                        {
+                            <br />
+                            <div class="spinner-grow text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        }
+                        @if (showMessage)
+                        {
+                            <br />
+                            <div class="alert alert-dismissible alert-danger">
+                                Παρακαλώ επιλέξτε μία απάντηση για να συνεχίσετε!
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+            <hr />
+            <h5 style="text-align: right;">@(questionsIndex + 1) / @questions.Count</h5>
+        }
+        else
+        {
+            <div class="container">
+                <h2>Συγχαρητήρια! Ολοκλήρωσες επιτυχώς το Quiz για <b>Professors</b>.</h2>
+                <br />
+                <h2>Score: @score / @questions.Count</h2>
+                <br />
+                <button class="btn btn-lg btn-success" type="button" @onclick="NavigateToSolutions">Δες τις σωστές απαντήσεις</button>
+                &nbsp
+                &nbsp
+                <button class="btn btn-lg btn-danger" type="button" @onclick="NavigateTo">Πήγαινε σε επόμενο Quiz</button>
+            </div>
+        }
+
+    }
+</div>
+
+@code {
+    List<Question> questions = new List<Question>();
+    private string questionsEndpoint = string.Empty;
+    private bool notLoadedQuestions = true;
+    private bool answerHasBeenPosted = true;
+    int questionsIndex = 0;
+    int score = 0;
+    UserAnswer userAnswer = new UserAnswer()
+        {
+            User_id = 1,
+            QuizId = 2011
+        };
+    private string answerEndpoint = string.Empty;
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string userID = string.Empty;
+
+    private bool IsChecked = true;
+    private bool showMessage = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        questions = await getQuestions();
+        notLoadedQuestions = !notLoadedQuestions;
+        questionsIndex = 0;
+        score = 0;
+
+        var authState = await AuthState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
+        }
+    }
+
+    private async Task<List<Question>> getQuestions()
+    {
+        questionsEndpoint = _config["getAllQuestionsFromOneQuiz"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint + "2011");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+
+    private async void OptionSelected()
+    {
+        IsChecked = userAnswer.AnswerId != null;
+
+        if (IsChecked)
+        {
+            showMessage = false;
+            questionsIndex++;
+
+            answerEndpoint = _config["getOneAnswer"];
+
+            try
+            {
+                string url = answerEndpoint + userAnswer.AnswerId.ToString();
+                var result = await _client.GetFromJsonAsync<Answer>(url);
+
+                UserAnswer ua = new UserAnswer();
+                ua.User_id = int.Parse(userID);
+                ua.QuizId = userAnswer.QuizId;
+                ua.AnswerId = userAnswer.AnswerId;
+                ua.QuestionId = result?.QuestionId;
+
+
+                answerHasBeenPosted = false;
+                var answerPostResult = makePostRequestForUserAnswer(ua);
+                answerHasBeenPosted = true;
+
+                if (result.IsCorrect == "yes")
+                {
+                    score++;
+                }
+
+                //userAnswer.QuestionId = result.QuestionId
+
+                Console.WriteLine(ua.User_id.ToString());
+                Console.WriteLine(ua.QuizId.ToString());
+                Console.WriteLine(ua.QuestionId.ToString());
+                Console.WriteLine(ua.AnswerId.ToString());
+
+                Console.WriteLine("-IsChecked-" + IsChecked.ToString());
+                userAnswer.AnswerId = null;
+            }
+            catch (Exception ex)
+            {
+                Console.Out.WriteLineAsync(ex.Message);
+            }
+        }
+        else
+        {
+            showMessage = true;
+        }
+
+
+    }
+
+    private async Task<string> makePostRequestForUserAnswer(UserAnswer ua)
+    {
+        string api = _config["postOneUserAnswer"];
+
+        var postResult = await _client.PostAsJsonAsync(api, ua);
+
+        var result = await postResult.Content.ReadAsStringAsync();
+
+        if (postResult.IsSuccessStatusCode == false)
+        {
+            return null;
+        }
+
+        return result;
+    }
+
+    private void NavigateTo()
+    {
+        navManager.NavigateTo("/jobs");
+    }
+
+    private void NavigateToSolutions()
+    {
+        navManager.NavigateTo("/Professors_Quiz_Solutions");
+    }
+}
+
+@code {
+
+}

@@ -1,0 +1,143 @@
+﻿@page "/UI_UX_Designer_Quiz_Solutions"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
+
+<style>
+    body {
+        background-color: #333;
+    }
+</style>
+
+<div class="mask" style="background-color: #21bf73;">
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Απαντήσεις για UI/UX Designer Quiz</h1>
+            <h4 class="mb-3 d-flex justify-content-center align-items-center ">Παρακάτω βρίσκονται οι σωστές απαντήσεις του Quiz που μόλις απάντησες.</h4>
+        </div>
+    </div>
+</div>
+
+<EditForm Model="listOfAnswers">
+    <div class="container mt-sm-5 my-1">
+        @if (notLoadedQuestions == true)
+        {
+            <br />
+            <div class="d-flex justify-content-center">
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in questions)
+            {
+                <div class="question ml-sm-5 pl-sm-5 pt-2">
+                    <div class="py-2 h5"><b>Q. @item.QuestionText.Trim()</b></div>
+                    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+                        <fieldset id="@item.QuestionId">
+                            @foreach (var answer in item.Answers)
+                            {
+                                <label class="options">
+                                    @if (answer.IsCorrect == "yes")
+                                    {
+                                        <span class="oi oi-check"></span>
+                                        @:&nbsp;
+                                        <mark style="background-color:#FFFF8A;">@answer.AnswerText.Trim()</mark>
+                                    }
+                                    else
+                                    {
+                                        <span class="oi oi-x"></span>
+                                        @:&nbsp;
+                                        @answer.AnswerText.Trim()
+                                    }
+                                </label>
+                            }
+                        </fieldset>
+                    </div>
+                </div>
+
+                <br />
+                <hr />
+                <br />
+            }
+        }
+
+
+
+
+        <div>
+            <p>Για να εκτελέσεις ξανά το Quiz πάτα εδώ.</p>
+
+            <div class="ml-auto mr-sm-5">
+                <button class="btn btn-success" @onclick="EvaluateAnswers">Quiz</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+
+
+
+<br />
+<br />
+<br />
+
+
+@code {
+    List<Question> questions = new List<Question>();
+    private string questionsEndpoint = string.Empty;
+    private bool notLoadedQuestions = true;
+    private int num;
+    UserAnswer userAnswer = new UserAnswer();
+    List<UserAnswer> listOfAnswers = new List<UserAnswer>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        questions = await getQuestions();
+        notLoadedQuestions = !notLoadedQuestions;
+    }
+
+    private async Task<List<Question>> getQuestions()
+    {
+        questionsEndpoint = _config["getAllQuestionsFromOneQuiz"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Question>>(questionsEndpoint + "2005");
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+
+    private void EvaluateAnswers()
+    {
+        navManager.NavigateTo("/UI_UX_Designer_Quiz");
+    }
+
+}
+
+
+@code {
+
+}

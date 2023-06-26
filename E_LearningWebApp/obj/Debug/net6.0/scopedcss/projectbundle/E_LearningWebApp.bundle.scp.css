@@ -1,3 +1,883 @@
+/* /Pages/Cybersecurity_Analyst_Quiz.razor.rz.scp.css */
+body[b-gqwfx5qkzu] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-gqwfx5qkzu] {
+    background-color: #333;
+}
+
+.container[b-gqwfx5qkzu] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-gqwfx5qkzu] {
+    width: 75%;
+}
+
+.options[b-gqwfx5qkzu] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-gqwfx5qkzu] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-gqwfx5qkzu] {
+    opacity: 0;
+}
+
+.checkmark[b-gqwfx5qkzu] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-gqwfx5qkzu]:after {
+    display: block;
+}
+
+.options .checkmark[b-gqwfx5qkzu]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-gqwfx5qkzu] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-gqwfx5qkzu]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-gqwfx5qkzu] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-gqwfx5qkzu] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-gqwfx5qkzu] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-gqwfx5qkzu] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Cybersecurity_Analyst_Quiz_Solutions.razor.rz.scp.css */
+body[b-655u8uyw4u] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-655u8uyw4u] {
+    background-color: #333;
+}
+
+.container[b-655u8uyw4u] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-655u8uyw4u] {
+    width: 75%;
+}
+
+.options[b-655u8uyw4u] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-655u8uyw4u] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-655u8uyw4u] {
+    opacity: 0;
+}
+
+.checkmark[b-655u8uyw4u] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-655u8uyw4u]:after {
+    display: block;
+}
+
+.options .checkmark[b-655u8uyw4u]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-655u8uyw4u] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-655u8uyw4u]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-655u8uyw4u] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-655u8uyw4u] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-655u8uyw4u] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-655u8uyw4u] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Data_Scientist_Quiz.razor.rz.scp.css */
+body[b-6qr2dgpjtj] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-6qr2dgpjtj] {
+    background-color: #333;
+}
+
+.container[b-6qr2dgpjtj] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-6qr2dgpjtj] {
+    width: 75%;
+}
+
+.options[b-6qr2dgpjtj] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-6qr2dgpjtj] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-6qr2dgpjtj] {
+    opacity: 0;
+}
+
+.checkmark[b-6qr2dgpjtj] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-6qr2dgpjtj]:after {
+    display: block;
+}
+
+.options .checkmark[b-6qr2dgpjtj]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-6qr2dgpjtj] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-6qr2dgpjtj]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-6qr2dgpjtj] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-6qr2dgpjtj] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-6qr2dgpjtj] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-6qr2dgpjtj] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Data_Scientist_Quiz_Solutions.razor.rz.scp.css */
+body[b-sb1sgw249e] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-sb1sgw249e] {
+    background-color: #333;
+}
+
+.container[b-sb1sgw249e] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-sb1sgw249e] {
+    width: 75%;
+}
+
+.options[b-sb1sgw249e] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-sb1sgw249e] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-sb1sgw249e] {
+    opacity: 0;
+}
+
+.checkmark[b-sb1sgw249e] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-sb1sgw249e]:after {
+    display: block;
+}
+
+.options .checkmark[b-sb1sgw249e]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-sb1sgw249e] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-sb1sgw249e]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-sb1sgw249e] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-sb1sgw249e] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-sb1sgw249e] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-sb1sgw249e] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Game_Developer_Quiz.razor.rz.scp.css */
+body[b-61mb7putr0] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-61mb7putr0] {
+    background-color: #333;
+}
+
+.container[b-61mb7putr0] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-61mb7putr0] {
+    width: 75%;
+}
+
+.options[b-61mb7putr0] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-61mb7putr0] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-61mb7putr0] {
+    opacity: 0;
+}
+
+.checkmark[b-61mb7putr0] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-61mb7putr0]:after {
+    display: block;
+}
+
+.options .checkmark[b-61mb7putr0]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-61mb7putr0] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-61mb7putr0]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-61mb7putr0] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-61mb7putr0] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-61mb7putr0] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-61mb7putr0] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Game_Developer_Quiz_Solutions.razor.rz.scp.css */
+body[b-stalkyz4a1] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-stalkyz4a1] {
+    background-color: #333;
+}
+
+.container[b-stalkyz4a1] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-stalkyz4a1] {
+    width: 75%;
+}
+
+.options[b-stalkyz4a1] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-stalkyz4a1] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-stalkyz4a1] {
+    opacity: 0;
+}
+
+.checkmark[b-stalkyz4a1] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-stalkyz4a1]:after {
+    display: block;
+}
+
+.options .checkmark[b-stalkyz4a1]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-stalkyz4a1] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-stalkyz4a1]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-stalkyz4a1] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-stalkyz4a1] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-stalkyz4a1] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-stalkyz4a1] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Machine_Learning_Engineer_Quiz.razor.rz.scp.css */
+body[b-410fwzexti] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-410fwzexti] {
+    background-color: #333;
+}
+
+.container[b-410fwzexti] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-410fwzexti] {
+    width: 75%;
+}
+
+.options[b-410fwzexti] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-410fwzexti] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-410fwzexti] {
+    opacity: 0;
+}
+
+.checkmark[b-410fwzexti] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-410fwzexti]:after {
+    display: block;
+}
+
+.options .checkmark[b-410fwzexti]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-410fwzexti] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-410fwzexti]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-410fwzexti] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-410fwzexti] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-410fwzexti] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-410fwzexti] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Machine_Learning_Engineer_Quiz_Solutions.razor.rz.scp.css */
+body[b-8eei9jo220] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-8eei9jo220] {
+    background-color: #333;
+}
+
+.container[b-8eei9jo220] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-8eei9jo220] {
+    width: 75%;
+}
+
+.options[b-8eei9jo220] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-8eei9jo220] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-8eei9jo220] {
+    opacity: 0;
+}
+
+.checkmark[b-8eei9jo220] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-8eei9jo220]:after {
+    display: block;
+}
+
+.options .checkmark[b-8eei9jo220]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-8eei9jo220] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-8eei9jo220]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-8eei9jo220] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-8eei9jo220] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-8eei9jo220] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-8eei9jo220] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
 /* /Pages/Mobile_App_Developer_Quiz.razor.rz.scp.css */
 import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 /** {
@@ -208,6 +1088,440 @@ body[b-0cnsc22fht] {
 
 @media(max-width:576px) {
     .question[b-0cnsc22fht] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Network_Administrator_Quiz.razor.rz.scp.css */
+body[b-1sekwv23fp] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-1sekwv23fp] {
+    background-color: #333;
+}
+
+.container[b-1sekwv23fp] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-1sekwv23fp] {
+    width: 75%;
+}
+
+.options[b-1sekwv23fp] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-1sekwv23fp] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-1sekwv23fp] {
+    opacity: 0;
+}
+
+.checkmark[b-1sekwv23fp] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-1sekwv23fp]:after {
+    display: block;
+}
+
+.options .checkmark[b-1sekwv23fp]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-1sekwv23fp] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-1sekwv23fp]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-1sekwv23fp] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-1sekwv23fp] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-1sekwv23fp] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-1sekwv23fp] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Network_Administrator_Quiz_Solutions.razor.rz.scp.css */
+body[b-ago8f8pquw] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-ago8f8pquw] {
+    background-color: #333;
+}
+
+.container[b-ago8f8pquw] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-ago8f8pquw] {
+    width: 75%;
+}
+
+.options[b-ago8f8pquw] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-ago8f8pquw] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-ago8f8pquw] {
+    opacity: 0;
+}
+
+.checkmark[b-ago8f8pquw] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-ago8f8pquw]:after {
+    display: block;
+}
+
+.options .checkmark[b-ago8f8pquw]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-ago8f8pquw] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-ago8f8pquw]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-ago8f8pquw] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-ago8f8pquw] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-ago8f8pquw] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-ago8f8pquw] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Professors_Quiz.razor.rz.scp.css */
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-ufxq252mwz] {
+    background-color: #333;
+}
+
+.container[b-ufxq252mwz] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-ufxq252mwz] {
+    width: 75%;
+}
+
+.options[b-ufxq252mwz] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-ufxq252mwz] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-ufxq252mwz] {
+    opacity: 0;
+}
+
+.checkmark[b-ufxq252mwz] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-ufxq252mwz]:after {
+    display: block;
+}
+
+.options .checkmark[b-ufxq252mwz]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-ufxq252mwz] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-ufxq252mwz]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-ufxq252mwz] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-ufxq252mwz] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-ufxq252mwz] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-ufxq252mwz] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/Professors_Quiz_Solutions.razor.rz.scp.css */
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-2vb9j82nbv] {
+    background-color: #333;
+}
+
+.container[b-2vb9j82nbv] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-2vb9j82nbv] {
+    width: 75%;
+}
+
+.options[b-2vb9j82nbv] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-2vb9j82nbv] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-2vb9j82nbv] {
+    opacity: 0;
+}
+
+.checkmark[b-2vb9j82nbv] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-2vb9j82nbv]:after {
+    display: block;
+}
+
+.options .checkmark[b-2vb9j82nbv]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-2vb9j82nbv] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-2vb9j82nbv]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-2vb9j82nbv] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-2vb9j82nbv] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-2vb9j82nbv] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-2vb9j82nbv] {
         width: 100%;
         word-spacing: 2px;
     }
@@ -476,6 +1790,226 @@ body[b-02e7fc4ebt] {
 
 @media(max-width:576px) {
     .question[b-02e7fc4ebt] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/UI_UX_Designer_Quiz.razor.rz.scp.css */
+body[b-o5y1nv9sbc] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-o5y1nv9sbc] {
+    background-color: #333;
+}
+
+.container[b-o5y1nv9sbc] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-o5y1nv9sbc] {
+    width: 75%;
+}
+
+.options[b-o5y1nv9sbc] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-o5y1nv9sbc] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-o5y1nv9sbc] {
+    opacity: 0;
+}
+
+.checkmark[b-o5y1nv9sbc] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-o5y1nv9sbc]:after {
+    display: block;
+}
+
+.options .checkmark[b-o5y1nv9sbc]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-o5y1nv9sbc] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-o5y1nv9sbc]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-o5y1nv9sbc] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-o5y1nv9sbc] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-o5y1nv9sbc] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-o5y1nv9sbc] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}
+/* /Pages/UI_UX_Designer_Quiz_Solutions.razor.rz.scp.css */
+body[b-cz6yynrwdy] {
+}
+
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-cz6yynrwdy] {
+    background-color: #333;
+}
+
+.container[b-cz6yynrwdy] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-cz6yynrwdy] {
+    width: 75%;
+}
+
+.options[b-cz6yynrwdy] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-cz6yynrwdy] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-cz6yynrwdy] {
+    opacity: 0;
+}
+
+.checkmark[b-cz6yynrwdy] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-cz6yynrwdy]:after {
+    display: block;
+}
+
+.options .checkmark[b-cz6yynrwdy]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-cz6yynrwdy] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-cz6yynrwdy]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-cz6yynrwdy] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-cz6yynrwdy] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-cz6yynrwdy] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-cz6yynrwdy] {
         width: 100%;
         word-spacing: 2px;
     }

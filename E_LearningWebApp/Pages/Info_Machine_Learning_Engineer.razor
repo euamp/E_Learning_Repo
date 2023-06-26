@@ -1,4 +1,5 @@
 ﻿@page "/info_Machine_Learning_Engineer"
+@inject NavigationManager navManager
 
 <div class="container">
     <div class="container text-center" style="background-image: url('images/blue_wall.jpg'); background-repeat: no-repeat; height: 350px; width: 100%">
@@ -230,7 +231,7 @@
     Δοκίμασε να συμπληρώσεις το σχετικό Quiz:
     <br />
     <br />
-    <button class="btn btn-lg btn-success" type="button">Quiz Για Machine Learning Engineer</button>
+    <button class="btn btn-lg btn-success" type="button" @onclick="navigateTo">Quiz Για Machine Learning Engineer</button>
 </h5>
 
 <br />
@@ -238,5 +239,8 @@
 <br />
 
 @code {
-
+    private void navigateTo()
+    {
+        navManager.NavigateTo("/Machine_Learning_Engineer_Quiz");
+    }
 }

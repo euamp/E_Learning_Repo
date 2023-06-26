@@ -4,7 +4,49 @@
 @inject NavigationManager navManager
 
 
-<table class="table table-secondary table-bordered table-striped">
+<div>
+    <table class="table table-hover table-bordered">
+        <thead class="table table-secondary">
+            <tr>
+                <th>Τύπος</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@quizes[0].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[1].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[2].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[3].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[4].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[5].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[6].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[7].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[8].QuizName</td>
+            </tr>
+            <tr>
+                <td>@quizes[9].QuizName</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@*<table class="table table-secondary table-bordered table-striped">
     <thead>
         <tr class="table table-dark">
             <th>Quiz</th>
@@ -42,7 +84,7 @@
             <td>@quizes[9].QuizName</td>
         </tr>
     </tbody>    
-</table>
+</table>*@
 
 @code {
     List<Quiz> quizes = new List<Quiz>();
