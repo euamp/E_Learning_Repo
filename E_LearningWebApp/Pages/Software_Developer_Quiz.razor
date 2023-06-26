@@ -1,6 +1,9 @@
-﻿@page "/Software_Developer_Quiz"
+﻿@page "/Software_Developer_Quiz_solutions" 
 @inject IConfiguration _config
 @inject HttpClient _client
+@inject NavigationManager navManager
+
+@*Πρώην v1 page*@
 
 <style>
     body {
@@ -11,8 +14,8 @@
 <div class="mask" style="background-color: #21bf73;">
     <div class="d-flex justify-content-center align-items-center ">
         <div class="text-white">
-            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Software Developer Quiz</h1>
-            <h4 class="mb-3 d-flex justify-content-center align-items-center ">Απάντησε στις παρακάτω ερωτήσεις και δοκίμασε τις γνώσεις σου!</h4>
+            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Απαντήσεις για Software Developer Quiz</h1>
+            <h4 class="mb-3 d-flex justify-content-center align-items-center ">Παρακάτω βρίσκονται οι σωστές απαντήσεις του Quiz που μόλις απάντησες.</h4>
             @*<a class="btn btn-outline-light btn-lg d-flex justify-content-center align-items-center " href="#!" role="button">Call to action</a>*@
         </div>
     </div>
@@ -55,9 +58,24 @@
                             @foreach (var answer in item.Answers)
                             {
                                 <label class="options">
-                                    @answer.AnswerText.Trim()
-                                    <input type="radio" id="@answer.AnswerId" name="@item.QuestionId">
-                                    <span class="checkmark"></span>
+                                    @if (answer.IsCorrect == "yes")
+                                    {
+                                        <span class="oi oi-check"></span>
+                                        @:&nbsp;
+                                        <mark style="background-color:#FFFF8A;">@answer.AnswerText.Trim()</mark>
+                                        @*@:&nbsp;
+                                        <span class="oi oi-check"></span>*@
+                                    }
+                                    else
+                                    {
+                                        <span class="oi oi-x"></span>
+                                        @:&nbsp;
+                                        @answer.AnswerText.Trim()
+                                        @*@:&nbsp;
+                                        <span class="oi oi-x"></span>*@
+                                    }                                    
+                                    @*<input type="radio" id="@answer.AnswerId" name="@item.QuestionId">*@
+                                    @*<span class="checkmark"></span>*@
                                 </label>
                             }
                         </fieldset>
@@ -73,15 +91,17 @@
 
 
 
-        <div class="d-flex align-items-center pt-3">
-            <div id="prev">
-                <button class="btn btn-primary">Previous</button>
-            </div>
+        <div >
+            <p>Για να εκτελέσεις ξανά το Quiz πάτα εδώ.</p>
+            @*<div id="prev">
+                <button class="btn btn-primary">Quiz</button>
+            </div>*@
+            @*&nbsp
             &nbsp
-            &nbsp
-            &nbsp
+            &nbsp*@
+
             <div class="ml-auto mr-sm-5">
-                <button class="btn btn-success" onclick="EvaluateAnswers">Submit</button>
+                <button class="btn btn-success" @onclick="EvaluateAnswers">Quiz</button>
             </div>
         </div>
     </div>
@@ -134,7 +154,7 @@
 
     private void EvaluateAnswers()
     {
-        
+        navManager.NavigateTo("/software_Developer_Quiz");
     }
 
     //private async Task<Quiz> getQuiz()

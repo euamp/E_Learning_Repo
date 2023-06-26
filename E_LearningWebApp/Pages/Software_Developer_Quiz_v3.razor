@@ -1,6 +1,9 @@
-﻿@page "/software_Developer_Quiz_v3"
+﻿@page "/software_Developer_Quiz"
 @inject IConfiguration _config
 @inject HttpClient _client
+@inject NavigationManager navManager
+
+@*Πρώην v3 page*@
 
 <style>
     body {
@@ -93,9 +96,14 @@
         else
         {
             <div class="container">
-                <h2>Συγχαρητήρια! Ολοκλήρωσες επιτυχώς το Quiz για <b>Software Developers</b></h2>
+                <h2>Συγχαρητήρια! Ολοκλήρωσες επιτυχώς το Quiz για <b>Software Developers</b>.</h2>
                 <br />
-                <button class="btn btn-lg btn-success" type="button">Πήγαινε σε επόμενο Quiz</button>
+                <h2>Score: @score / @questions.Count</h2>
+                <br />
+                <button class="btn btn-lg btn-success" type="button" @onclick="NavigateToSolutions">Δες τις σωστές απαντήσεις</button>
+                &nbsp
+                &nbsp
+                <button class="btn btn-lg btn-danger" type="button" @onclick="NavigateTo">Πήγαινε σε επόμενο Quiz</button>
             </div>
         }
 
@@ -108,6 +116,7 @@
     private bool notLoadedQuestions = true;
     private bool answerHasBeenPosted = true;
     int questionsIndex = 0;
+    int score = 0;
     UserAnswer userAnswer = new UserAnswer()
     {
         User_id = 1,
@@ -126,6 +135,7 @@
         questions = await getQuestions();
         notLoadedQuestions = !notLoadedQuestions;
         questionsIndex = 0;
+        score = 0;
 
         var authState = await AuthState;
         if (authState.User.Identity.IsAuthenticated)
@@ -177,6 +187,11 @@
                 var answerPostResult = makePostRequestForUserAnswer(ua);
                 answerHasBeenPosted = true;
 
+                if (result.IsCorrect == "yes")
+                {
+                    score++;
+                }
+
                 //userAnswer.QuestionId = result.QuestionId
 
                 Console.WriteLine(ua.User_id.ToString());
@@ -197,7 +212,7 @@
             showMessage = true;
         }
 
-          
+
     }
 
     private async Task<string> makePostRequestForUserAnswer(UserAnswer ua)
@@ -214,5 +229,15 @@
         }
 
         return result;
+    }
+
+    private void NavigateTo()
+    {
+        navManager.NavigateTo("/jobs");
+    }
+
+    private void NavigateToSolutions()
+    {
+        navManager.NavigateTo("/Software_Developer_Quiz_solutions");
     }
 }

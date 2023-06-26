@@ -55,7 +55,7 @@
             </div>
             <div class="card-footer bg-white">
                 <a @onclick="() =>  NavigateToInfoPage(course.CourseName)" class="btn btn-primary">Checkout</a> |
-                <a @onclick="NavigateToQuiz" class="btn btn-success">Take a Quiz</a>
+                <a @onclick="() =>  NavigateToQuiz(course.CourseName)" class="btn btn-success">Take a Quiz</a>
             </div>
         </div>
     }
@@ -121,8 +121,11 @@
         navManager.NavigateTo(navigationLink);
     }
 
-    private void NavigateToQuiz()
+    private void NavigateToQuiz(string jobName)
     {
-        navManager.NavigateTo("/login");
+        jobName = jobName.Replace(" ", "_").Replace("/", "_").Replace("(", "").Replace(")", "");
+        string navigationLink = jobName + "_quiz";
+        Console.WriteLine(jobName + "_quiz");
+        navManager.NavigateTo(navigationLink);
     }
 }
