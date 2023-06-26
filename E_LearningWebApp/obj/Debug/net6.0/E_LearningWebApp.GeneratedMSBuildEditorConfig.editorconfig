@@ -100,6 +100,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Quizes.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpemVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -112,6 +116,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Mobile_App_Developer_Quiz.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9iaWxlX0FwcF9EZXZlbG9wZXJfUXVpei5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-n1reojyejv
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Mobile_App_Developer_Quiz_Solutions.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9iaWxlX0FwcF9EZXZlbG9wZXJfUXVpel9Tb2x1dGlvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0cnsc22fht
+
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Software_Developer_Quiz.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29mdHdhcmVfRGV2ZWxvcGVyX1F1aXoucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ybq3wwvj45
@@ -123,6 +135,14 @@ build_metadata.AdditionalFiles.CssScope = b-19a8ybfpvd
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Software_Developer_Quiz_v3.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU29mdHdhcmVfRGV2ZWxvcGVyX1F1aXpfdjMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-02e7fc4ebt
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Web_Developer_Quiz.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2ViX0RldmVsb3Blcl9RdWl6LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-rl5388daa9
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Web_Developer_Quiz_solutions.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2ViX0RldmVsb3Blcl9RdWl6X3NvbHV0aW9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-kisjba1qje
 
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

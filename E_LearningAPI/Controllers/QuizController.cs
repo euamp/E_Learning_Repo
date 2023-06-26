@@ -30,6 +30,15 @@ public class QuizController : ControllerBase
         return Ok(quizes);
     }
 
+    // GET: api/Quiz
+    [HttpGet("simple")]
+    public ActionResult<IEnumerable<Quiz>> GetSimple()
+    {
+        var quizes = _context.Quizzes
+            .ToList();
+        return Ok(quizes);
+    }
+
     // GET api/Quiz/5
     [HttpGet("{id}")]
     public ActionResult<Quiz> Get(int id)

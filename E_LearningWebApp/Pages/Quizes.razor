@@ -1,0 +1,71 @@
+﻿@page "/Quizes"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
+
+
+<table class="table table-secondary table-bordered table-striped">
+    <thead>
+        <tr class="table table-dark">
+            <th>Quiz</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@quizes[0].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[1].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[2].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[3].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[4].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[5].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[6].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[7].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[8].QuizName</td>
+        </tr>
+        <tr>
+            <td>@quizes[9].QuizName</td>
+        </tr>
+    </tbody>    
+</table>
+
+@code {
+    List<Quiz> quizes = new List<Quiz>();
+    private string quizesEndpoint = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        quizes = await getQuizes();
+    }
+
+    private async Task<List<Quiz>> getQuizes()
+    {
+        quizesEndpoint = _config["getAllQuizesSimple"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<Quiz>>(quizesEndpoint);
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+}

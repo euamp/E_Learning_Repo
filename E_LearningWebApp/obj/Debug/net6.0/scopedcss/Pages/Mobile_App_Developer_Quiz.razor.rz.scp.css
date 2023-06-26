@@ -1,0 +1,106 @@
+import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
+/*body {
+    background-color: #333;
+}*/
+body[b-n1reojyejv] {
+    background-color: #333;
+}
+
+.container[b-n1reojyejv] {
+    background-color: #555;
+    color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 700px;
+}
+
+/*.container > p {
+        font-size: 32px;
+    }*/
+
+.question[b-n1reojyejv] {
+    width: 75%;
+}
+
+.options[b-n1reojyejv] {
+    position: relative;
+    padding-left: 40px;
+}
+
+#options label[b-n1reojyejv] {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.options input[b-n1reojyejv] {
+    opacity: 0;
+}
+
+.checkmark[b-n1reojyejv] {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+
+.options input:checked ~ .checkmark[b-n1reojyejv]:after {
+    display: block;
+}
+
+.options .checkmark[b-n1reojyejv]:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked ~ .checkmark[b-n1reojyejv] {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+    .options input[type="radio"]:checked ~ .checkmark[b-n1reojyejv]:after {
+        transform: translate(-50%,-50%) scale(1);
+    }
+
+.btn-primary[b-n1reojyejv] {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+    .btn-primary:hover[b-n1reojyejv] {
+        background-color: #21bf73;
+        border: 1px solid #21bf73;
+    }
+
+.btn-success[b-n1reojyejv] {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+@media(max-width:576px) {
+    .question[b-n1reojyejv] {
+        width: 100%;
+        word-spacing: 2px;
+    }
+}

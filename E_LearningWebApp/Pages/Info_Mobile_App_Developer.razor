@@ -1,4 +1,5 @@
 ﻿@page "/info_Mobile_App_Developer"
+@inject NavigationManager navManager
 
 <div class="container">
     <div class="container text-center" style="background-image: url('images/blue_wall.jpg'); background-repeat: no-repeat; height: 350px; width: 100%">
@@ -228,7 +229,7 @@
     Δοκίμασε να συμπληρώσεις το σχετικό Quiz:
     <br />
     <br />
-    <button class="btn btn-lg btn-success" type="button">Quiz Για Mobile App Developer</button>
+    <button class="btn btn-lg btn-success" @onclick="navigateTo" type="button">Quiz Για Mobile App Developer</button>
 </h5>
 
 <br />
@@ -237,5 +238,8 @@
 
 
 @code {
-
+    private void navigateTo()
+    {
+        navManager.NavigateTo("/Mobile_App_Developer_Quiz");
+    }
 }

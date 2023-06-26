@@ -829,3 +829,7 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Software_Developer_Quiz.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Software_Developer_Quiz_v2.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Software_Developer_Quiz_v3.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Web_Developer_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Web_Developer_Quiz_solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Mobile_App_Developer_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Mobile_App_Developer_Quiz_Solutions.razor.rz.scp.css
