@@ -27,7 +27,7 @@ public class QuestionsController : ControllerBase
         return Ok(questions);
     }
 
-    // GET api/Questions/final
+    // GET api/Questions/final 
     [HttpGet("final")]
     public ActionResult<IEnumerable<Question>> GetFinalQuizQuestions()
     {
