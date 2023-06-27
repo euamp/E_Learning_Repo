@@ -132,6 +132,14 @@ build_metadata.AdditionalFiles.CssScope = b-6qr2dgpjtj
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGF0YV9TY2llbnRpc3RfUXVpel9Tb2x1dGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-sb1sgw249e
 
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Final_Quiz.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYWxfUXVpei5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-n17k74oa92
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Final_Quiz_Solutions.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmluYWxfUXVpel9Tb2x1dGlvbnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-iyuux272gn
+
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Game_Developer_Quiz.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FtZV9EZXZlbG9wZXJfUXVpei5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-61mb7putr0

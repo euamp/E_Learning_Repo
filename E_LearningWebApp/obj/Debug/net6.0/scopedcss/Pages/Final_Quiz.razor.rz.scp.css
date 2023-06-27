@@ -7,11 +7,11 @@ import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 /*body {
     background-color: #333;
 }*/
-body[b-rl5388daa9] {
+body[b-n17k74oa92] {
     background-color: #333;
 }
 
-.container[b-rl5388daa9] {
+.container[b-n17k74oa92] {
     background-color: #555;
     color: #ddd;
     border-radius: 10px;
@@ -24,27 +24,27 @@ body[b-rl5388daa9] {
         font-size: 32px;
     }*/
 
-.question[b-rl5388daa9] {
+.question[b-n17k74oa92] {
     width: 75%;
 }
 
-.options[b-rl5388daa9] {
+.options[b-n17k74oa92] {
     position: relative;
     padding-left: 40px;
 }
 
-#options label[b-rl5388daa9] {
+#options label[b-n17k74oa92] {
     display: block;
     margin-bottom: 15px;
     font-size: 14px;
     cursor: pointer;
 }
 
-.options input[b-rl5388daa9] {
+.options input[b-n17k74oa92] {
     opacity: 0;
 }
 
-.checkmark[b-rl5388daa9] {
+.checkmark[b-n17k74oa92] {
     position: absolute;
     top: -1px;
     left: 0;
@@ -55,11 +55,11 @@ body[b-rl5388daa9] {
     border-radius: 50%;
 }
 
-.options input:checked ~ .checkmark[b-rl5388daa9]:after {
+.options input:checked ~ .checkmark[b-n17k74oa92]:after {
     display: block;
 }
 
-.options .checkmark[b-rl5388daa9]:after {
+.options .checkmark[b-n17k74oa92]:after {
     content: "";
     width: 10px;
     height: 10px;
@@ -73,33 +73,33 @@ body[b-rl5388daa9] {
     transition: 300ms ease-in-out 0s;
 }
 
-.options input[type="radio"]:checked ~ .checkmark[b-rl5388daa9] {
+.options input[type="radio"]:checked ~ .checkmark[b-n17k74oa92] {
     background: #21bf73;
     transition: 300ms ease-in-out 0s;
 }
 
-    .options input[type="radio"]:checked ~ .checkmark[b-rl5388daa9]:after {
+    .options input[type="radio"]:checked ~ .checkmark[b-n17k74oa92]:after {
         transform: translate(-50%,-50%) scale(1);
     }
 
-.btn-primary[b-rl5388daa9] {
+.btn-primary[b-n17k74oa92] {
     background-color: #555;
     color: #ddd;
     border: 1px solid #ddd;
 }
 
-    .btn-primary:hover[b-rl5388daa9] {
+    .btn-primary:hover[b-n17k74oa92] {
         background-color: #21bf73;
         border: 1px solid #21bf73;
     }
 
-.btn-success[b-rl5388daa9] {
+.btn-success[b-n17k74oa92] {
     padding: 5px 25px;
     background-color: #21bf73;
 }
 
 @media(max-width:576px) {
-    .question[b-rl5388daa9] {
+    .question[b-n17k74oa92] {
         width: 100%;
         word-spacing: 2px;
     }

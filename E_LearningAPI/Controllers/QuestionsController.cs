@@ -27,6 +27,69 @@ public class QuestionsController : ControllerBase
         return Ok(questions);
     }
 
+    // GET api/Questions/final
+    [HttpGet("final")]
+    public ActionResult<IEnumerable<Question>> GetFinalQuizQuestions()
+    {
+        // Γεμίζω μία λίστα με μόνο τα distinct QuizID
+        var distinctQuizIds = _context.Questions
+            .Select(q => q.QuizId)
+            .Distinct()
+            .ToList();
+
+        // Αρχικοποιώ την τελική λίστα που θα στείλω μέσω αυτού του Endpoint
+        List<Question> finalQuzQuestions = new List<Question>();
+
+        // Κάποιες απαραίτητες αρχικοποιήσεις
+        Random rnd = new Random();
+        int num;
+        int index;
+
+        foreach (var q in distinctQuizIds)
+        {
+            // Τυχαίος αριθμός απο το 1 έως το 3
+            num = rnd.Next(1,4);
+
+            // Καλώ απο τη βάση μόνο όσα Questions έχουν ως Quiz Id το τωρινό 
+            // εξεταζόμενο (δηλαδή το q) και γεμίζω αυτή τη προσωρινή λίστα
+            var questionsToAdd = _context.Questions
+                .Where(qid => qid.QuizId.Equals(q))
+                .Include(a => a.Answers)
+                .ToList();
+
+            // Τρέχω ένα forLoop τόσες φόρές όσο ο τυχαίος αριθμός που βρήκα πριν (το num)
+            for (int i = 0; i < num; i++)
+            {
+                // Διαλέγω έναν τυχαίο αριθμό Από το 1 μέχρι το Χ,
+                // Όπου το Χ = το μέγεθος της λίστας με τα Questions που
+                // έχουν ίδιο Quiz ID
+                index = rnd.Next(questionsToAdd.Count);
+
+                // Προσθέτω στην τελική λίστα το τυχαίο αντικείμενο της
+                // προσωρινής λίστας που διάλεξα μέσω της μεταβλητής index
+                finalQuzQuestions.Add(questionsToAdd[index]);
+
+                // Το αφαιρώ απο την προσωρινή λίστα για να μην μπορώ να το ξανα-επιλέξω
+                questionsToAdd.Remove(questionsToAdd[index]);
+            }
+        }
+
+        // Για λόγους testing
+        Console.WriteLine(finalQuzQuestions.Count);
+
+        //Κάνω Randomize την τελική λίστα πρωτού τη στείλω
+        for (int i = finalQuzQuestions.Count - 1; i > 0; i--)
+        {
+            var k = rnd.Next(i + 1);
+            var value = finalQuzQuestions[k];
+            finalQuzQuestions[k] = finalQuzQuestions[i];
+            finalQuzQuestions[i] = value;
+        }
+
+        // Στέλνω μέσω αυτού του Endpoint την τελική τυχαία λίστα
+        return Ok(finalQuzQuestions);
+    }
+
     // GET api/Questions/5
     [HttpGet("{id}")]
     public ActionResult<Question> Get(int id)

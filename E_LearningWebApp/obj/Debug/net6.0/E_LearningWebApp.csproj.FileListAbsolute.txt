@@ -847,3 +847,5 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Game_Developer_Quiz_Solutions.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Professors_Quiz.razor.rz.scp.css
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Professors_Quiz_Solutions.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Final_Quiz.razor.rz.scp.css
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningWebApp\obj\Debug\net6.0\scopedcss\Pages\Final_Quiz_Solutions.razor.rz.scp.css
