@@ -1,5 +1,6 @@
 ﻿using E_Learning_Library.DataTransferObjects;
 using E_Learning_Library.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
