@@ -2,6 +2,8 @@
 @inject IConfiguration _config
 @inject HttpClient _client
 @inject NavigationManager navManager
+@attribute [Authorize]
+
 
 <p>
     <h4>
@@ -11,6 +13,17 @@
         Παρακάτω αναφέρονται κάποια από τα πιο συνηθισμένα επαγγέλματα 
         στον Κλάδο της Πληροφορικής.
     </h4>
+
+    <AuthorizeView Roles="Admin">
+        <Authorized>
+            <br />
+            <button class="btn btn-primary" @onclick="AddCourse">Add a new Course</button>
+            <br />
+        </Authorized>
+        <NotAuthorized>
+
+        </NotAuthorized>
+    </AuthorizeView>
     <br />
     <ul>
         <li>Software Developer/Engineer</li>
@@ -127,5 +140,10 @@
         string navigationLink = jobName + "_quiz";
         Console.WriteLine(jobName + "_quiz");
         navManager.NavigateTo(navigationLink);
+    }
+
+    private void AddCourse()
+    {
+        navManager.NavigateTo("/Create_A_Course");
     }
 }
