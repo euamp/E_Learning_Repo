@@ -40,6 +40,22 @@ public class AuthController : ControllerBase
             _context.Users.Add(user);
             _context.SaveChanges();
 
+            JobScores jobScore = new JobScores();
+            jobScore.User_Id = user.Id;
+            jobScore.Software_Developer = 0;
+            jobScore.Web_Developer = 0;
+            jobScore.Mobile_App_Developer = 0;
+            jobScore.UI_UX_Designer = 0;
+            jobScore.Data_Scientist = 0;
+            jobScore.Machine_Learning_Engineer = 0;
+            jobScore.Network_Administrator = 0;
+            jobScore.Cybersecurity_Analyst = 0;
+            jobScore.Game_Developer = 0;
+            jobScore.Professors = 0;
+
+            _context.JobScores.Add(jobScore);
+            _context.SaveChanges();
+
             return Ok(user);
         }
         catch (Exception ex)

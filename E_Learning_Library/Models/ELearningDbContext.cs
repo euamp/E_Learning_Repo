@@ -30,6 +30,8 @@ public partial class ELearningDbContext : DbContext
 
     public virtual DbSet<UserProgress> UserProgresses { get; set; }
 
+    public virtual DbSet<JobScores> JobScores { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=E_LearningDB;Integrated Security=True;");
 
@@ -191,6 +193,25 @@ public partial class ELearningDbContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.UserProgresses)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__UserProgr__User___5BE2A6F2");
+        });
+
+        modelBuilder.Entity<JobScores>(entity =>
+        {
+            entity.HasKey(e => e.Job_Scores_Id).HasName("PK__JobScoresId__C200B7512D47C0F9");
+
+            entity.ToTable("Job_Scores");
+
+            entity.Property(e => e.Software_Developer).HasColumnName("Software_Developer");
+            entity.Property(e => e.Web_Developer).HasColumnName("Web_Developer");
+            entity.Property(e => e.Mobile_App_Developer).HasColumnName("Mobile_App_Developer");
+            entity.Property(e => e.UI_UX_Designer).HasColumnName("UI_UX_Designer");
+            entity.Property(e => e.Data_Scientist).HasColumnName("Data_Scientist");
+            entity.Property(e => e.Machine_Learning_Engineer).HasColumnName("Machine_Learning_Engineer");
+            entity.Property(e => e.Network_Administrator).HasColumnName("Network_Administrator");
+            entity.Property(e => e.Cybersecurity_Analyst).HasColumnName("Cybersecurity_Analyst");
+            entity.Property(e => e.Game_Developer).HasColumnName("Game_Developer");
+            entity.Property(e => e.Professors).HasColumnName("Professors");
+            entity.Property(e => e.User_Id).HasColumnName("User_Id");
         });
 
         OnModelCreatingPartial(modelBuilder);
