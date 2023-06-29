@@ -233,6 +233,8 @@
 
     private void NavigateTo()
     {
+        var result = makePostRequestForUserProgress();
+
         navManager.NavigateTo("/jobs");
     }
 
@@ -242,6 +244,10 @@
 
         navManager.NavigateTo("/Software_Developer_Quiz_solutions");
     }
+
+    // Σε αυτή τη συνάρτηση περνάμε το τελικό σκορ του χρήστη στην βάση.
+    // Στη συνέχεια ο χρήστης μπορεί να πάει να δει όλα τα σκορ του μέχρι 
+    // τώρα στην ενότητα "My Progress"
 
     private async Task<string> makePostRequestForUserProgress()
     {

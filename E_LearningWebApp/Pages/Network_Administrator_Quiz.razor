@@ -231,12 +231,37 @@
 
     private void NavigateTo()
     {
+        var result = makePostRequestForUserProgress();
+
         navManager.NavigateTo("/jobs");
     }
 
     private void NavigateToSolutions()
     {
+        var result = makePostRequestForUserProgress();
+
         navManager.NavigateTo("/Network_Administrator_Quiz_Solutions");
+    }
+
+    private async Task<string> makePostRequestForUserProgress()
+    {
+        string api = _config["postUserProgress"];
+
+        UserProgressCreateDTO userProgressCreateDTO = new UserProgressCreateDTO();
+        userProgressCreateDTO.UserId = int.Parse(userID);
+        userProgressCreateDTO.QuizId = 2008;
+        userProgressCreateDTO.Score = score.ToString();
+
+        var postResult = await _client.PostAsJsonAsync(api, userProgressCreateDTO);
+
+        var result = await postResult.Content.ReadAsStringAsync();
+
+        if (postResult.IsSuccessStatusCode == false)
+        {
+            return null;
+        }
+
+        return result;
     }
 }
 
