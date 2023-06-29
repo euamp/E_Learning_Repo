@@ -15,4 +15,6 @@ public class UserProgress
     public virtual Quiz Quiz { get; set; } = null!;
 
     //public virtual User User { get; set; } = null!;
+
+    //public virtual ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 }

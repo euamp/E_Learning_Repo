@@ -15,7 +15,9 @@ public partial class UserProgress
 
     public DateTime DateCompleted { get; set; }
 
-    //public virtual Quiz Quiz { get; set; } = null!;
+    public virtual Quiz Quiz { get; set; } = null!;
 
     //public virtual User User { get; set; } = null!;
+
+    //public virtual ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
 }

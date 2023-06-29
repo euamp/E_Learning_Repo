@@ -1,0 +1,123 @@
+﻿@page "/My_Progress"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
+
+<div class="container-fluid d-flex justify-content-start align-items-start vh-100" style="background-image: url('https://marvelapp.com/wp-content/uploads/2018/04/progress-bar.png'); background-size: cover;">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="text-center text-white">
+            <h1 class="display-4">My Progress</h1>
+            @*<p class="lead">We're working on something amazing. Stay tuned!</p>*@
+            <h2>
+                Σε αυτή την ενότητα μπορείς να δεις όλα τα Σκορ 
+                απο όλα τα Quiz που έχεις πραγματοποιήσει.
+                Ανακάλυψε την πρόοδο σου και συνέχισε να προσπαθείς
+                για να φτάσεις στην κορυφή!
+            </h2>
+            <a class="btn btn-outline-light btn-lg d-flex justify-content-center align-items-center "  role="button">
+                <h4>Θέλω να δω την πρόοδό μου</h4>
+            </a>
+        </div>
+    </div>
+</div>
+
+@if (notLoadedProgress)
+{
+    <br />
+    <div class="d-flex justify-content-center">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Αποτελέσματα</h1>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div id="tableOfContentsToSeeByUser" @ref="tableOfContentsToSeeByUser">
+        <table class="table" id="table111">
+            <thead>
+                <tr>
+                    <th scope="col">Quiz Id</th>
+                    @*<th scope="col">Quiz Name</th>*@
+                    <th scope="col">Score</th>
+                    <th scope="col">Date Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in progresses)
+                {
+                    <tr>
+                        <td>@item.QuizId</td>
+                        @*<td>@item.Quiz.QuizName</td>*@
+                        <td>@item.Score</td>
+                        <td>@item.DateCompleted</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+}
+
+@code {
+    List<UserProgress> progresses = new List<UserProgress>();
+    private string progressEndpoint = string.Empty;
+    private bool notLoadedProgress = true;
+
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string userID = string.Empty;
+
+    ElementReference tableOfContentsToSeeByUser;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            // Με αυτόν τον τρόπο διαβάζω μέσω του Token το ID του χρήστη
+            userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
+        }
+
+        progresses = await getProgress();
+        notLoadedProgress = !notLoadedProgress;
+    }
+
+    private async Task<List<UserProgress>> getProgress()
+    {
+        progressEndpoint = _config["getProgressOfUser"];
+
+        try
+        {
+            var result = await _client.GetFromJsonAsync<List<UserProgress>>(progressEndpoint + userID);
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
+    }
+}

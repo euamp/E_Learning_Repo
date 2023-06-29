@@ -2,6 +2,7 @@
 using E_Learning_Library.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace E_LearningAPI.Controllers;
 
@@ -32,6 +33,7 @@ public class UserProgressController : ControllerBase
         var progress = _context.UserProgresses
             .Where(x => x.UserId == id)
             .OrderBy(d => d.DateCompleted)
+            //.Include(q => q.Quizzes)
             .ToList();
 
         if (progress.Count.Equals(0))
@@ -54,6 +56,7 @@ public class UserProgressController : ControllerBase
         userProgress.QuizId = userProgressCreateDTO.QuizId;
         userProgress.Score = userProgressCreateDTO.Score;
         userProgress.DateCompleted = DateTime.Now;
+        userProgress.Quiz = _context.Quizzes.Where(q => q.QuizId == userProgressCreateDTO.QuizId).FirstOrDefault();
 
         try
         {
