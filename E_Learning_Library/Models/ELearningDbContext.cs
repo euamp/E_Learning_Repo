@@ -186,13 +186,13 @@ public partial class ELearningDbContext : DbContext
             entity.Property(e => e.Score).HasMaxLength(15);
             entity.Property(e => e.UserId).HasColumnName("User_id");
 
-            entity.HasOne(d => d.Quiz).WithMany(p => p.UserProgresses)
-                .HasForeignKey(d => d.QuizId)
-                .HasConstraintName("FK__UserProgr__Quiz___5CD6CB2B");
+            //entity.HasOne(d => d.Quiz).WithMany(p => p.UserProgresses)
+            //    .HasForeignKey(d => d.QuizId)
+            //    .HasConstraintName("FK__UserProgr__Quiz___5CD6CB2B");
 
-            entity.HasOne(d => d.User).WithMany(p => p.UserProgresses)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__UserProgr__User___5BE2A6F2");
+            //entity.HasOne(d => d.User).WithMany(p => p.UserProgresses)
+            //    .HasForeignKey(d => d.UserId)
+            //    .HasConstraintName("FK__UserProgr__User___5BE2A6F2");
         });
 
         modelBuilder.Entity<JobScores>(entity =>
