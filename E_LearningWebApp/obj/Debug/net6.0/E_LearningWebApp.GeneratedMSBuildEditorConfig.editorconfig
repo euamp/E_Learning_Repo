@@ -100,10 +100,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nb3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/My_Progress.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlfUHJvZ3Jlc3MucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Quizes.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpemVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -171,6 +167,10 @@ build_metadata.AdditionalFiles.CssScope = b-n1reojyejv
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Mobile_App_Developer_Quiz_Solutions.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9iaWxlX0FwcF9EZXZlbG9wZXJfUXVpel9Tb2x1dGlvbnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0cnsc22fht
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/My_Progress.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlfUHJvZ3Jlc3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9aoaq1b27h
 
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Network_Administrator_Quiz.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTmV0d29ya19BZG1pbmlzdHJhdG9yX1F1aXoucmF6b3I=

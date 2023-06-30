@@ -174,6 +174,16 @@
                 string url = answerEndpoint + userAnswer.AnswerId.ToString();
                 var result = await _client.GetFromJsonAsync<Answer>(url);
 
+                if (result.IsCorrect == "yes")
+                {
+                    // Υπενθύμιση: Αν ο χρήστης απαντήσει σωστά την τελευταία ερώτηση
+                    // δεν του δείχνουμε το σωστό σκορ στο τέλος του Quiz. Του δείχνουμε
+                    // Το σκορ με μια λιγότερη σωστή.
+                    // Ωστόσο, άν πάει στο My progress, και δει το Quiz που έκανε( το τελευταίο )
+                    // Θα δει κανονικά το σωστό σκορ. Θέλει λίγο Fix
+                    score++;
+                }
+
                 UserAnswer ua = new UserAnswer();
                 ua.User_id = int.Parse(userID);
                 ua.QuizId = userAnswer.QuizId;
@@ -184,11 +194,6 @@
                 answerHasBeenPosted = false;
                 var answerPostResult = makePostRequestForUserAnswer(ua);
                 answerHasBeenPosted = true;
-
-                if (result.IsCorrect == "yes")
-                {
-                    score++;
-                }
 
                 //userAnswer.QuestionId = result.QuestionId
 
@@ -250,7 +255,8 @@
         UserProgressCreateDTO userProgressCreateDTO = new UserProgressCreateDTO();
         userProgressCreateDTO.UserId = int.Parse(userID);
         userProgressCreateDTO.QuizId = 2003;
-        userProgressCreateDTO.Score = score.ToString();
+        userProgressCreateDTO.Quizname = "Web Developer Quiz";
+        userProgressCreateDTO.Score = score.ToString() + " / " + questions.Count;
 
         var postResult = await _client.PostAsJsonAsync(api, userProgressCreateDTO);
 

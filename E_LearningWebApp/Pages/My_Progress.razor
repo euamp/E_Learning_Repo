@@ -2,6 +2,8 @@
 @inject IConfiguration _config
 @inject HttpClient _client
 @inject NavigationManager navManager
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
 
 <div class="container-fluid d-flex justify-content-start align-items-start vh-100" style="background-image: url('https://marvelapp.com/wp-content/uploads/2018/04/progress-bar.png'); background-size: cover;">
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
@@ -14,72 +16,121 @@
                 Ανακάλυψε την πρόοδο σου και συνέχισε να προσπαθείς
                 για να φτάσεις στην κορυφή!
             </h2>
-            <a class="btn btn-outline-light btn-lg d-flex justify-content-center align-items-center "  role="button">
+            <a class="btn btn-outline-light btn-lg d-flex justify-content-center align-items-center " data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">
                 <h4>Θέλω να δω την πρόοδό μου</h4>
             </a>
         </div>
     </div>
 </div>
 
-@if (notLoadedProgress)
-{
-    <br />
-    <div class="d-flex justify-content-center">
-        <div class="spinner-grow text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-secondary" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-danger" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-warning" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-grow text-info" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-    </div>
-}
-else
-{
-    <h1>Αποτελέσματα</h1>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div id="tableOfContentsToSeeByUser" @ref="tableOfContentsToSeeByUser">
-        <table class="table" id="table111">
-            <thead>
-                <tr>
-                    <th scope="col">Quiz Id</th>
-                    @*<th scope="col">Quiz Name</th>*@
-                    <th scope="col">Score</th>
-                    <th scope="col">Date Completed</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in progresses)
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> My Progress</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (notLoadedProgress)
                 {
-                    <tr>
-                        <td>@item.QuizId</td>
-                        @*<td>@item.Quiz.QuizName</td>*@
-                        <td>@item.Score</td>
-                        <td>@item.DateCompleted</td>
-                    </tr>
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-secondary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-danger" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-warning" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 }
-            </tbody>
-        </table>
+                else
+                {
+                    @*<div id="myElement" @ref="tableOfContentsToSeeByUser">
+                        <table class="table" id="table111">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Quiz Name</th>
+                                    <th scope="col">Score</th>
+                                    <th scope="col">Date Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in progresses)
+                                {
+                                    <tr>
+                                        <td>@item.Quizname</td>
+                                        <td>@item.Score</td>
+                                        <td>@item.DateCompleted</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>*@
+
+                    @*Trying out different styles of tables*@
+
+                    <section class="intro">
+                        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="mask d-flex align-items-center h-100">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body p-0">
+                                                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                                        <table class="table table-striped mb-0">
+                                                            <thead style="background-color: #002d72;">
+                                                                <tr>
+                                                                    <th scope="col">Quiz Name</th>
+                                                                    <th scope="col">Score</th>
+                                                                    <th scope="col">Date Completed</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in progresses)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@item.Quizname</td>
+                                                                        <td>@item.Score</td>
+                                                                        <td>@item.DateCompleted</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
     </div>
-    
-}
+</div>
 
 @code {
     List<UserProgress> progresses = new List<UserProgress>();
@@ -119,5 +170,10 @@ else
             Console.Out.WriteLineAsync(ex.Message);
             return null;
         }
+    }
+
+    private void showModal(string elementId)
+    {
+        
     }
 }

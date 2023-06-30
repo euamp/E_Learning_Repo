@@ -250,7 +250,8 @@
         UserProgressCreateDTO userProgressCreateDTO = new UserProgressCreateDTO();
         userProgressCreateDTO.UserId = int.Parse(userID);
         userProgressCreateDTO.QuizId = 2009;
-        userProgressCreateDTO.Score = score.ToString();
+        userProgressCreateDTO.Quizname = "Cybersecurity Analyst Quiz";
+        userProgressCreateDTO.Score = score.ToString() + " / " + questions.Count;
 
         var postResult = await _client.PostAsJsonAsync(api, userProgressCreateDTO);
 

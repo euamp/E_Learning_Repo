@@ -12,5 +12,7 @@ public class UserProgressCreateDTO
 
     public int QuizId { get; set; }
 
+    public string Quizname { get; set; }
+
     public string Score { get; set; } = null!;
 }

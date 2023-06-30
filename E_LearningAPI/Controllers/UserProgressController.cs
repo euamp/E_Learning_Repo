@@ -32,8 +32,8 @@ public class UserProgressController : ControllerBase
     {
         var progress = _context.UserProgresses
             .Where(x => x.UserId == id)
-            .OrderBy(d => d.DateCompleted)
-            //.Include(q => q.Quizzes)
+            .OrderByDescending(d => d.DateCompleted)
+            .OrderBy(q => q.Quizname)
             .ToList();
 
         if (progress.Count.Equals(0))
@@ -54,9 +54,9 @@ public class UserProgressController : ControllerBase
         UserProgress userProgress = new UserProgress();
         userProgress.UserId = userProgressCreateDTO.UserId;
         userProgress.QuizId = userProgressCreateDTO.QuizId;
+        userProgress.Quizname = userProgressCreateDTO.Quizname;
         userProgress.Score = userProgressCreateDTO.Score;
         userProgress.DateCompleted = DateTime.Now;
-        userProgress.Quiz = _context.Quizzes.Where(q => q.QuizId == userProgressCreateDTO.QuizId).FirstOrDefault();
 
         try
         {

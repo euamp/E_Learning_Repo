@@ -182,10 +182,10 @@ public partial class ELearningDbContext : DbContext
 
             entity.Property(e => e.UserProgressId).HasColumnName("UserProgress_id");
             entity.Property(e => e.DateCompleted).HasColumnType("datetime");
-            entity.Property(e => e.QuizId).HasColumnName("Quiz_id");
+            entity.Property(e => e.Quizname).HasColumnName("Quiz_Name");
             entity.Property(e => e.Score).HasMaxLength(15);
             entity.Property(e => e.UserId).HasColumnName("User_id");
-
+            entity.Property(e => e.QuizId).HasColumnName("QuizId");
             //entity.HasOne(d => d.Quiz).WithMany(p => p.UserProgresses)
             //    .HasForeignKey(d => d.QuizId)
             //    .HasConstraintName("FK__UserProgr__Quiz___5CD6CB2B");

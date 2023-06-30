@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GQR32m3m6IrE352EgQf1w9TqdwyrL9SHvdJFXN0PRvQ=",
+  "Hash": "Huz31ThWB/WlYitXRDYY4R8vgqbSv+W0kPAiOGQKVwU=",
   "Source": "E_LearningWebApp",
   "BasePath": "/",
   "Mode": "Root",
@@ -6900,6 +6900,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\E_LearningWebApp.bundle.scp.css"
+    },
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\Pages\\My_Progress.razor.js",
+      "SourceId": "E_LearningWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\",
+      "BasePath": "/",
+      "RelativePath": "Pages/My_Progress.razor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Pages\\My_Progress.razor.js"
     },
     {
       "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningWebApp\\wwwroot\\appsettings.json",
