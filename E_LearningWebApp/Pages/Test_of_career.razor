@@ -1,0 +1,73 @@
+﻿@page "/Test_of_career"
+
+<style>
+    body{
+        background-color: #2C2C2C;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <img src="images/laptop_man.jpg" class="card-img-top" alt="Quiz 1">
+                <div class="card-body">
+                    <h3 class="card-title">Quiz 1</h3>
+                    <p class="card-text">Δοκιμάστε να λύσετε ένα Quiz για να ελέγξετε τις ικανότητές σας.</p>
+                    <a href="final_quiz_quiz" class="btn btn-success">Start Quiz 1</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <img src="/images/laptop_orange.jpg" class="card-img-top" alt="Quiz 2">
+                <div class="card-body">
+                    <h3 class="card-title">Quiz 2</h3>
+                    <p class="card-text">Απαντήστε στις ερωτήσεις γενικού τυπου ωστε να σας κατανοήσουμε καλύτερα.</p>
+                    <a href="quiz_of_preferences" class="btn btn-success">Start Quiz 2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col">
+            <div class="form-check form-switch">
+                <input class="form-check-input fs-5" type="checkbox" id="quizCompletedCheck" @bind="@quizCompleted">
+                <h4 class="form-check-label text-white" for="quizCompletedCheck">I have completed both types of quizzes</h4>
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    @*<div class="row">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="quizCompletedCheck" @bind="@quizCompleted">
+                <h4 class="form-check-label text-white" for="quizCompletedCheck">I have completed both types of quizzes</h4>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary btn-lg btn-block" disabled="@(!quizCompleted)" @onclick="EvaluateCareerPath">Evaluate my Career Path</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+@code {
+    private bool quizCompleted;
+
+    private void EvaluateCareerPath()
+    {
+        // Code to evaluate career path based on completed quizzes
+    }
+}

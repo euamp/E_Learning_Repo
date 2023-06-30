@@ -1,0 +1,426 @@
+﻿@page "/Quiz_of_preferences"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
+
+<style>
+    body {
+        background-color: #333;
+    }
+</style>
+
+<div class="mask" style="background-color: #21bf73;">
+    <div class="d-flex justify-content-center align-items-center ">
+        <div class="text-white">
+            <h1 class="mb-3 d-flex justify-content-center align-items-center ">Ερωτηματολόγιο Προτιμήσεων</h1>
+            <h4 class="mb-3 d-flex justify-content-center align-items-center ">
+                Συμπλήρωσε το ερωτηματολόγιο των προτιμήσεών σου
+                ώστε να μας βοηθήσεις να εξάγουμε καλύτερο και 
+                πιο σωστό αποτέλεσμα.
+            </h4>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+
+<div class="container" style="background-color: gray; padding: 20px;">
+    @foreach (var question in QuizQuestions)
+    {
+        <h5 style="color: white;">@question.QuestionText</h5>
+        <div class="form-check">
+            @foreach (var option in question.AnswerOptions)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="@question.QuestionId" id="@option.OptionId" value="@option.jobReference" checked="@IsOptionSelected(question.QuestionId, option.jobReference)" @onchange="() => UpdateSelectedAnswer(question.QuestionId, option.jobReference)">
+                    <label class="form-check-label" for="@option.OptionId" style="color: white;">@option.OptionText</label>
+                </div>
+            }
+        </div>
+        <hr style="background-color: white;" />
+    }
+
+    <div class="text-center">
+        <button class="btn btn-primary" disabled="@(!IsQuizCompleted)" @onclick="CheckQuiz" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Επιτυχής συμπλήρωση!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Συγχαρητήρια. Μόλις τελειώσατε την συμπλήρωση του ερωτηματολόγιου!</h3>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string userID = string.Empty;
+
+    private JobScores jobScores = new JobScores();
+    private string jobScoresEndpoint = string.Empty;
+    private string jobScoresPutEndpoint = string.Empty;
+
+    private int soft_dev_score;
+    private int web_dev_score;
+    private int mobile_dev_score;
+    private int ui_ux_dev_score;
+    private int data_sci_score;
+    private int machine_learning_dev_score;
+    private int net_admin_score;
+    private int security_admin_score;
+    private int game_dev_score;
+    private int professor_score;
+
+    private List<Question> QuizQuestions { get; set; } = GenerateQuiz();
+
+    private Dictionary<int, string> SelectedAnswers { get; set; } = new Dictionary<int, string>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
+        }
+
+        getJobScores();
+
+        soft_dev_score = jobScores.Software_Developer;
+        web_dev_score = jobScores.Web_Developer;
+        mobile_dev_score = jobScores.Mobile_App_Developer;
+        ui_ux_dev_score = jobScores.UI_UX_Designer;
+        data_sci_score = jobScores.Data_Scientist;
+        machine_learning_dev_score = jobScores.Machine_Learning_Engineer;
+        net_admin_score = jobScores.Network_Administrator;
+        security_admin_score = jobScores.Cybersecurity_Analyst;
+        game_dev_score = jobScores.Game_Developer;
+        professor_score = jobScores.Professors;
+    }
+
+    private async void getJobScores()
+    {
+        jobScoresEndpoint = _config["getOneJobScoreEndpoint"];
+
+        try
+        {
+            jobScores = await _client.GetFromJsonAsync<JobScores>(jobScoresEndpoint + userID);
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+        }
+    }
+
+    private bool IsOptionSelected(int questionId, string jobReference)
+    {
+        return SelectedAnswers.ContainsKey(questionId) && SelectedAnswers[questionId] == jobReference;
+    }
+
+    private void UpdateSelectedAnswer(int questionId, string jobReference)
+    {
+        if (SelectedAnswers.ContainsKey(questionId))
+        {
+            SelectedAnswers[questionId] = jobReference;
+        }
+        else
+        {
+            SelectedAnswers.Add(questionId, jobReference);
+        }
+    }
+
+    private async void CheckQuiz()
+    {
+        foreach (var item in SelectedAnswers)
+        {
+            if(item.Value == "Software Developer")
+            {
+                soft_dev_score++;
+            }
+            else if(item.Value == "Web Developer")
+            {
+                web_dev_score++;
+            }
+            else if(item.Value == "Mobile App Developer")
+            {
+                mobile_dev_score++;
+            }
+            else if(item.Value == "UI/UX Designer")
+            {
+                ui_ux_dev_score++;
+            }
+            else if(item.Value == "Data Scientist")
+            {
+                data_sci_score++;
+            }
+            else if(item.Value == "Machine Learning Engineer")
+            {
+                machine_learning_dev_score++;
+            }
+            else if(item.Value == "Network Administrator")
+            {
+                net_admin_score++;
+            }
+            else if(item.Value == "Cybersecurity Analyst")
+            {
+                security_admin_score++;
+            }
+            else if(item.Value == "Game Developer")
+            {
+                game_dev_score++;
+            }
+            else if(item.Value == "Professors")
+            {
+                professor_score++;
+            }
+        }
+
+        Console.WriteLine(soft_dev_score);
+        Console.WriteLine(web_dev_score);
+        Console.WriteLine(mobile_dev_score);
+        Console.WriteLine(ui_ux_dev_score);
+        Console.WriteLine(data_sci_score);
+        Console.WriteLine(machine_learning_dev_score);
+        Console.WriteLine(net_admin_score);
+        Console.WriteLine(security_admin_score);
+        Console.WriteLine(game_dev_score);
+        Console.WriteLine(professor_score);
+
+        jobScoresPutEndpoint = _config["editOneJobScoreEndpoint"];
+
+        JobScoresEditDTO jobScoresEdit = new JobScoresEditDTO();
+        jobScoresEdit.Software_Developer = soft_dev_score;
+        jobScoresEdit.Web_Developer = web_dev_score;
+        jobScoresEdit.Mobile_App_Developer = mobile_dev_score;
+        jobScoresEdit.UI_UX_Designer = ui_ux_dev_score;
+        jobScoresEdit.Data_Scientist = data_sci_score;
+        jobScoresEdit.Machine_Learning_Engineer = machine_learning_dev_score;
+        jobScoresEdit.Network_Administrator = net_admin_score;
+        jobScoresEdit.Cybersecurity_Analyst = security_admin_score;
+        jobScoresEdit.Game_Developer = game_dev_score;
+        jobScoresEdit.Professors = professor_score;
+
+        var result = await _client.PutAsJsonAsync<JobScoresEditDTO>(jobScoresPutEndpoint + userID, jobScoresEdit);
+    }
+
+    private bool IsQuizCompleted => SelectedAnswers.Count == QuizQuestions.Count;
+
+    private void ShowToast(string message)
+    {
+        // Display the toast message
+        // You can implement your own toast component or use a third-party library for toasts
+        // This is just a basic example for demonstration purposes
+        // Replace this implementation with your preferred toast solution
+
+        // Replace this code with your own toast implementation
+        // For example, you could use a modal, a notification component, or a custom toast component
+        // This code is just a placeholder to demonstrate the concept
+
+        // Display an alert as a placeholder for the toast
+        // You can replace this with your preferred toast implementation
+        // or use a third-party library such as BlazorStrap, Blazorise, or Toastr for toasts
+        // This is just a basic example for demonstration purposes
+        //JSRuntime.InvokeVoidAsync("alert", message);
+    }
+
+    private static List<Question> GenerateQuiz()
+    {
+        var quizQuestions = new List<Question>();
+
+        // Προσθέτω τις ερωτήσεις του Quiz
+
+        // Question 1
+        var question1 = new Question
+        {
+            QuestionId = 1,
+            QuestionText = "Ποιος τομέας της πληροφορικής σε ενδιαφέρει περισσότερο;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 1, OptionText = "Εκπαιδευτική τεχνολογία και μάθηση μέσω τεχνολογίας", jobReference="Professors" },
+                new Option { OptionId = 2, OptionText = "Ανάπτυξη λογισμικού και εφαρμογών.", jobReference="Software Developer"  },
+                new Option { OptionId = 3, OptionText = "Σχεδιασμός και ανάπτυξη ιστοσελίδων και εφαρμογών", jobReference="Web Developer"  },
+                new Option { OptionId = 4, OptionText = "Ανάλυση και ανάκτηση πληροφοριών.", jobReference="Data Scientist"  }
+            }
+        };
+        quizQuestions.Add(question1);
+
+        // Question 2
+        var question2 = new Question
+        {
+            QuestionId = 2,
+            QuestionText = "Ποιο είναι το αγαπημένο σου μάθημα στην πληροφορική;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 5, OptionText = "Αλγόριθμοι και δομές δεδομένων", jobReference="Professors"  },
+                new Option { OptionId = 6, OptionText = "Προγραμματισμός", jobReference="Software Developer"  },
+                new Option { OptionId = 7, OptionText = "Bελτίωση της εμπειρίας χρήσης", jobReference="UI/UX Designer"  },
+                new Option { OptionId = 8, OptionText = "Ανάλυση και επεξεργασία δεδομένων", jobReference="Data Scientist"  }
+            }
+        };
+        quizQuestions.Add(question2);
+
+        // Question 3
+        var question3 = new Question
+        {
+            QuestionId = 3,
+            QuestionText = "Ποια είναι η πρωτεύουσα γλώσσα προγραμματισμού που θα ήθελες να μάθεις περισσότερο;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 9, OptionText = "Java", jobReference="Software Developer"  },
+                new Option { OptionId = 10, OptionText = "HTML/CSS/JavaScript.", jobReference="Web Developer"  },
+                new Option { OptionId = 11, OptionText = "Swift/Kotlin.", jobReference="Mobile App Developer"  },
+                new Option { OptionId = 12, OptionText = "C#", jobReference="Game Developer"  }
+            }
+        };
+        quizQuestions.Add(question3);
+
+        // Question 4
+        var question4 = new Question
+        {
+            QuestionId = 4,
+            QuestionText = "Ποιος τύπος δεδομένων σε ενδιαφέρει περισσότερο;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 13, OptionText = "Big Data-Μεγάλα Δεδομένα", jobReference="Data Scientist"  },
+                new Option { OptionId = 14, OptionText = "Δεδομένα δικτύου", jobReference="Network Administrator"  },
+                new Option { OptionId = 15, OptionText = "Προσωπικά δεδομένα και αισθητήρες", jobReference="Mobile App Developer"  },
+                new Option { OptionId = 16, OptionText = "Αναλυτικά δεδομένα χρήστη", jobReference="UI/UX Designer"  }
+            }
+        };
+        quizQuestions.Add(question4);
+
+        // Question 5
+        var question5 = new Question
+        {
+            QuestionId = 5,
+            QuestionText = "Ποια είναι η πρωταρχική σου επιδίωξη ως εργαζόμενος του τομέα πληροφορικής;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 17, OptionText = "Να μεταδώσω γνώσεις και να εμπνεύσω ανθρώπους", jobReference="Professors"  },
+                new Option { OptionId = 18, OptionText = "Να  προστατεύσω τα δεδομένα των χρηστών", jobReference="Cybersecurity Analyst"  },
+                new Option { OptionId = 19, OptionText = "Να διασκεδάσω τους χρήστες μέσα από καινοτόμα παιχνίδια", jobReference="Game Developer"  },
+                new Option { OptionId = 20, OptionText = "Να εργαστώ για την αυτοματοποίηση και την αυτόνομη λήψη αποφάσεων από συστήματα υπολογιστών", jobReference="Machine Learning Engineer"  }
+            }
+        };
+        quizQuestions.Add(question5);
+
+        // Question 6
+        var question6 = new Question
+        {
+            QuestionId = 6,
+            QuestionText = "Ποια είναι η αντίληψή σου για την τεχνολογία της τεχνητής νοημοσύνης;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 21, OptionText = "Ενδιαφέρομαι για την ανάπτυξη ευφυών συστημάτων και για αλγόριθμους μηχανικής μάθησης", jobReference="Machine Learning Engineer"  },
+                new Option { OptionId = 22, OptionText = "Δεν με ενδιαφέρει ο τομέας", jobReference=""  },
+                new Option { OptionId = 23, OptionText = "Λήψη αποφάσεων & μοντελοποίηση συμπεριφοράς σε παιχνίδια", jobReference="Game Developer"  },
+                new Option { OptionId = 24, OptionText = "Ενδιαφέρομαι για την ασφάλεια και την προστασία των συστημάτων AI.", jobReference="Cybersecurity Analyst"  }
+            }
+        };
+        quizQuestions.Add(question6);
+
+        // Question 7
+        var question7 = new Question
+        {
+            QuestionId = 7,
+            QuestionText = "Ποια πτυχή της ασφάλειας των πληροφοριών σε ενδιαφέρει περισσότερο; ",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 25, OptionText = "Ανάπτυξη κρυπτογραφικών αλγορίθμων και ασφάλειας δικτύου", jobReference="Cybersecurity Analyst"  },
+                new Option { OptionId = 26, OptionText = "Προστασία προσωπικών δεδομένων και ασφάλεια συστήματος.", jobReference="Network Administrator"  },
+                new Option { OptionId = 27, OptionText = "Ανίχνευση και αποκατάσταση ασφαλείας σε λογισμικό", jobReference="Software Developer"  },
+                new Option { OptionId = 28, OptionText = "Κανένα από τα παραπάνω", jobReference=""  }
+            }
+        };
+        quizQuestions.Add(question7);
+
+        // Question 8
+        var question8 = new Question
+        {
+            QuestionId = 8,
+            QuestionText = "Ποια από τις παρακάτω ικανότητες θεωρείτε ότι είναι η πιο απαραίτητη για έναν εργαζόμενο στον κλάδο της πληροφορικής;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 29, OptionText = "Ικανότητα ανάλυσης και επίλυσης προβλημάτων ασφάλειας", jobReference="Cybersecurity Analyst"  },
+                new Option { OptionId = 30, OptionText = "Δημιουργικότητα", jobReference="UI/UX Designer"  },
+                new Option { OptionId = 31, OptionText = "Ικανότητα ανίχνευσης, ανάλυσης και επίλυσης προβλημάτων", jobReference="Network Administrator"  },
+                new Option { OptionId = 32, OptionText = "Ικανότητα παρουσίασης περίπλοκων θεμάτων", jobReference="Professors"  }
+            }
+        };
+        quizQuestions.Add(question8);
+
+        // Question 9
+        var question9 = new Question
+        {
+            QuestionId = 9,
+            QuestionText = "Ποιο από τα παρακάτω soft skills θα ήθελες να αναπτύξεις;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 33, OptionText = "Κατανόηση των αναγκών και των στόχων των χρηστών", jobReference="UI/UX Designer"  },
+                new Option { OptionId = 34, OptionText = "Οργανωτικές δεξιότητες και ικανότητα για ορισμό πεοτεραιοτήτων", jobReference="Network Administrator"  },
+                new Option { OptionId = 35, OptionText = "Καλή κατανόηση του σχεδιασμού παιχνιδιών", jobReference="Game Developer"  },
+                new Option { OptionId = 36, OptionText = "Ικανότητα ανάλυσης δεδομένων και στατιστικής.", jobReference="Data Scientist"  }
+            }
+        };
+        quizQuestions.Add(question9);
+
+        // Question 10
+        var question10 = new Question
+        {
+            QuestionId = 10,
+            QuestionText = "Ποια από τις παρακάτω εφαρμογές θα θέλατε περισσότερο να δημιουργήσετε;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 37, OptionText = "Ένα μοντέλο μηχανικής μάθησης που να προβλέπει την κατηγορία μιας εικόνας.", jobReference="Machine Learning Engineer"  },
+                new Option { OptionId = 38, OptionText = "Ένα κινητό παιχνίδι που να παίζεται σε smartphone ή tablet.", jobReference="Mobile App Developer"  },
+                new Option { OptionId = 39, OptionText = "Μια ιστοσελίδα για μια εταιρεία ή ένα προσωπικό blog.", jobReference="Web Developer"  },
+                new Option { OptionId = 40, OptionText = "τίποτα από τα παραπάνω", jobReference=""  }
+            }
+        };
+        quizQuestions.Add(question10);
+
+        // Question 11
+        var question11 = new Question
+        {
+            QuestionId = 11,
+            QuestionText = "Ποιο από τα παρακάτω σας ενδιαφέρει περισσότερο;",
+            AnswerOptions = new List<Option>
+            {
+                new Option { OptionId = 41, OptionText = "Η ανάπτυξη μοντέλων για την αυτόματη αναγνώριση φωνής ή εικόνας.", jobReference="Machine Learning Engineer"  },
+                new Option { OptionId = 42, OptionText = "Η βελτιστοποίηση λειτουργιών σε κινητές εφαρμογές.", jobReference="Mobile App Developer"  },
+                new Option { OptionId = 43, OptionText = "Η προσαρμογή ιστοσελίδων για διάφορες συσκευές και περιηγητές. ", jobReference="Web Developer"  }
+            }
+        };
+        quizQuestions.Add(question11);
+
+        return quizQuestions;
+    }
+
+    public class Question
+    {
+        public int QuestionId { get; set; }
+        public string QuestionText { get; set; }
+        public List<Option> AnswerOptions { get; set; }
+        //public int CorrectAnswer { get; set; }
+    }
+
+    public class Option
+    {
+        public int OptionId { get; set; }
+        public string OptionText { get; set; }
+        public string jobReference { get; set; }
+    }
+}

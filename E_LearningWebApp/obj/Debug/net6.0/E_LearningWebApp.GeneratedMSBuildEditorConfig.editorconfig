@@ -104,12 +104,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpemVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Quiz_of_preferences.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpel9vZl9wcmVmZXJlbmNlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/See_All_Users.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VlX0FsbF9Vc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/Pages/Test_of_career.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdF9vZl9jYXJlZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/visual_studio_projects/web_projects/E_Learning/E_LearningWebApp/_Imports.razor]
