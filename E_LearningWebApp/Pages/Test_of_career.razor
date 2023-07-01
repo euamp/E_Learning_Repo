@@ -1,4 +1,7 @@
 ﻿@page "/Test_of_career"
+@inject IConfiguration _config
+@inject HttpClient _client
+@inject NavigationManager navManager
 
 <style>
     body{
@@ -10,7 +13,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-3">
-                <img src="images/laptop_man.jpg" class="card-img-top" alt="Quiz 1">
+                <img height="400" src="https://viralsolutions.net/wp-content/uploads/2019/06/shutterstock_749036344.jpg" class="card-img-top" alt="Quiz 1">
                 <div class="card-body">
                     <h3 class="card-title">Quiz 1</h3>
                     <p class="card-text">Δοκιμάστε να λύσετε ένα Quiz για να ελέγξετε τις ικανότητές σας.</p>
@@ -20,7 +23,7 @@
         </div>
         <div class="col-md-6">
             <div class="card mb-3">
-                <img src="/images/laptop_orange.jpg" class="card-img-top" alt="Quiz 2">
+                <img height="400" src="https://media.licdn.com/dms/image/C4E12AQECibDyxNI2xw/article-cover_image-shrink_600_2000/0/1613053403603?e=2147483647&v=beta&t=9KG0bGOh20e_hwnuS7u122muRjhIjZwiOC52tSK_vUU" class="card-img-top" alt="Quiz 2">
                 <div class="card-body">
                     <h3 class="card-title">Quiz 2</h3>
                     <p class="card-text">Απαντήστε στις ερωτήσεις γενικού τυπου ωστε να σας κατανοήσουμε καλύτερα.</p>
@@ -55,19 +58,259 @@
 
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary btn-lg btn-block" disabled="@(!quizCompleted)" @onclick="EvaluateCareerPath">Evaluate my Career Path</button>
+            <button class="btn btn-primary btn-lg btn-block" disabled="@(!quizCompleted && !jobIsNotEvaluated)" @onclick="EvaluateCareerPath" data-bs-toggle="modal" data-bs-target="#exampleModal">Evaluate my Career Path</button>
         </div>
     </div>
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Αποτελέσματα!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (jobIsNotEvaluated)
+                {
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-secondary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-danger" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-warning" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-info" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    @if (finalEvaluationJobs.Count == 1)
+                    {
+                        @foreach (var item in finalEvaluationJobs)
+                        {
+                            <h1>@item</h1>
+                            index++;
+                        }
+                    }
+                    else
+                    {
+                        @*@foreach (var item in finalEvaluationJobs)
+                        {
+                            <h1>@index ) @item</h1>
+                            index++;
+                        }*@
+                        @*<div class="container">
+                            <h3>Η λίστα με τα αποτελέσματα είναι η εξής:</h3>
+
+                            <div class="list-group">
+                                @foreach (var item in finalEvaluationJobs)
+                                {
+                                    <a class="list-group-item list-group-item-action">
+                                        <div class="d-flex justify-content-between">
+                                            <h5 class="mb-1">@index )</h5>
+                                            <h4>@item</h4>
+                                        </div>
+                                    </a>
+                                    index++;
+                                }
+                            </div>
+                        </div>*@
+                        <div class="container">
+                            <ul class="list-group">
+                                @foreach (var item in finalEvaluationJobs)
+                                {
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="fw-bold">@index</span>
+                                            <span>@item</span>
+                                        </div>
+                                    </li>
+                                    index++;
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @code {
-    private bool quizCompleted;
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; }
+    string userID = string.Empty;
 
-    private void EvaluateCareerPath()
+    private string jobScoresEndpoint = string.Empty;
+    JobScores jobScores = new JobScores();
+
+    private List<string> finalEvaluationJobs = new List<string>();
+
+    private bool quizCompleted;
+    private bool jobIsNotEvaluated = true;
+
+    int index;
+
+    protected override async Task OnInitializedAsync()
     {
-        // Code to evaluate career path based on completed quizzes
+        var authState = await AuthState;
+        if (authState.User.Identity.IsAuthenticated)
+        {
+            userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
+        }
+
+        jobIsNotEvaluated = true;
+
+        jobScores = await getJobScores();
+
+        jobIsNotEvaluated = false;
+    }
+
+    private async void EvaluateCareerPath()
+    {
+        index = 1;
+
+        int maxScore = jobScores.Software_Developer;
+        finalEvaluationJobs.Add("Software Developer");
+
+        //Somewhat repetitive code but does the job
+
+        if(jobScores.Web_Developer > maxScore)
+        {
+            maxScore = jobScores.Web_Developer;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Web Developer");
+        }
+        else if (jobScores.Web_Developer == maxScore)
+        {
+            finalEvaluationJobs.Add("Web Developer");
+        }
+
+        if (jobScores.Mobile_App_Developer > maxScore)
+        {
+            maxScore = jobScores.Mobile_App_Developer;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Mobile App Developer");
+        }
+        else if (jobScores.Mobile_App_Developer == maxScore)
+        {
+            finalEvaluationJobs.Add("Mobile App Developer");
+        }
+
+        if (jobScores.UI_UX_Designer > maxScore)
+        {
+            maxScore = jobScores.UI_UX_Designer;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("UI/UX Designer");
+        }
+        else if (jobScores.UI_UX_Designer == maxScore)
+        {
+            finalEvaluationJobs.Add("UI/UX Designer");
+        }
+
+        if (jobScores.Data_Scientist > maxScore)
+        {
+            maxScore = jobScores.Data_Scientist;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Data Scientist");
+        }
+        else if (jobScores.Data_Scientist == maxScore)
+        {
+            finalEvaluationJobs.Add("Data Scientist");
+        }
+
+        if (jobScores.Machine_Learning_Engineer > maxScore)
+        {
+            maxScore = jobScores.Machine_Learning_Engineer;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Machine Learning Engineer");
+        }
+        else if (jobScores.Machine_Learning_Engineer == maxScore)
+        {
+            finalEvaluationJobs.Add("Machine Learning Engineer");
+        }
+
+        if (jobScores.Network_Administrator > maxScore)
+        {
+            maxScore = jobScores.Network_Administrator;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Network Administrator");
+        }
+        else if (jobScores.Network_Administrator == maxScore)
+        {
+            finalEvaluationJobs.Add("Network Administrator");
+        }
+
+        if (jobScores.Cybersecurity_Analyst > maxScore)
+        {
+            maxScore = jobScores.Cybersecurity_Analyst;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Cybersecurity Analyst");
+        }
+        else if (jobScores.Cybersecurity_Analyst == maxScore)
+        {
+            finalEvaluationJobs.Add("Cybersecurity Analyst");
+        }
+
+        if (jobScores.Game_Developer > maxScore)
+        {
+            maxScore = jobScores.Game_Developer;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Game Developer");
+        }
+        else if (jobScores.Game_Developer == maxScore)
+        {
+            finalEvaluationJobs.Add("Game Developer");
+        }
+
+        if (jobScores.Professors > maxScore)
+        {
+            maxScore = jobScores.Professors;
+            finalEvaluationJobs.Clear();
+            finalEvaluationJobs.Add("Professors");
+        }
+        else if (jobScores.Professors == maxScore)
+        {
+            finalEvaluationJobs.Add("Professors");
+        }
+    }
+
+    private async Task<JobScores> getJobScores()
+    {
+        JobScores jobs = new JobScores();
+        jobScoresEndpoint = _config["getOneJobScoreEndpoint"];
+
+        try
+        {
+            jobs = await _client.GetFromJsonAsync<JobScores>(jobScoresEndpoint + userID);
+            return jobs;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
+            return null;
+        }
     }
 }
