@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "Iph6LuOSb6r4rCLDOqFlZSFBdoXP3duutgVsoL2hCAg=",
+  "Hash": "9WRZlzPBmkoLq0qNeTcTL3GgcbivxS70PzLrmoeW2Wc=",
   "Source": "E_LearningAPI",
   "BasePath": "_content/E_LearningAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "E_LearningAPI\\wwwroot",
+      "Source": "E_LearningAPI",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\",
+      "BasePath": "_content/E_LearningAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\Files\\User_Manual.pdf",
+      "SourceId": "E_LearningAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\",
+      "BasePath": "_content/E_LearningAPI",
+      "RelativePath": "Files/User_Manual.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\User_Manual.pdf"
+    }
+  ]
 }

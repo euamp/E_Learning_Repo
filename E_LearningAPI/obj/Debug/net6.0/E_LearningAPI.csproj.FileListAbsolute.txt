@@ -325,3 +325,4 @@ S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Scrutor.dll
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+S:\visual_studio_projects\web_projects\E_Learning\E_LearningAPI\bin\Debug\net6.0\E_LearningAPI.staticwebassets.runtime.json

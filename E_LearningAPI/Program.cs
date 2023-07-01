@@ -87,6 +87,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// To serve static images
+app.UseStaticFiles();
+
 // Configure to actually Use Cors
 app.UseCors("OpenCorsPolicy");
 

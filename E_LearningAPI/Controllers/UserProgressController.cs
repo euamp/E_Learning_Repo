@@ -38,7 +38,7 @@ public class UserProgressController : ControllerBase
 
         if (progress.Count.Equals(0))
         {
-            return NotFound("Progress Not Found");
+            return Ok(new List<UserProgress>());
         }
         else
         {
