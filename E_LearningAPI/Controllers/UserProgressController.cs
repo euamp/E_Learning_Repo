@@ -26,7 +26,7 @@ public class UserProgressController : ControllerBase
         return Ok(userProgresses);
     }
 
-    // GET api/UserProgress/5
+    // GET api/UserProgress/5 
     [HttpGet("{id}")]
     public ActionResult<IEnumerable<UserProgress>> GetProgressOfUser(int id)
     {
