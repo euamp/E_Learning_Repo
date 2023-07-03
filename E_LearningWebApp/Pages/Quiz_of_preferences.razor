@@ -98,17 +98,6 @@
         }
 
         getJobScores();
-
-        soft_dev_score = jobScores.Software_Developer;
-        web_dev_score = jobScores.Web_Developer;
-        mobile_dev_score = jobScores.Mobile_App_Developer;
-        ui_ux_dev_score = jobScores.UI_UX_Designer;
-        data_sci_score = jobScores.Data_Scientist;
-        machine_learning_dev_score = jobScores.Machine_Learning_Engineer;
-        net_admin_score = jobScores.Network_Administrator;
-        security_admin_score = jobScores.Cybersecurity_Analyst;
-        game_dev_score = jobScores.Game_Developer;
-        professor_score = jobScores.Professors;
     }
 
     private async void getJobScores()
@@ -118,6 +107,17 @@
         try
         {
             jobScores = await _client.GetFromJsonAsync<JobScores>(jobScoresEndpoint + userID);
+
+            soft_dev_score = jobScores.Software_Developer;
+            web_dev_score = jobScores.Web_Developer;
+            mobile_dev_score = jobScores.Mobile_App_Developer;
+            ui_ux_dev_score = jobScores.UI_UX_Designer;
+            data_sci_score = jobScores.Data_Scientist;
+            machine_learning_dev_score = jobScores.Machine_Learning_Engineer;
+            net_admin_score = jobScores.Network_Administrator;
+            security_admin_score = jobScores.Cybersecurity_Analyst;
+            game_dev_score = jobScores.Game_Developer;
+            professor_score = jobScores.Professors;
         }
         catch (Exception ex)
         {
@@ -198,6 +198,21 @@
         Console.WriteLine(security_admin_score);
         Console.WriteLine(game_dev_score);
         Console.WriteLine(professor_score);
+
+        // Επεξήγηση αλγορίθμου:
+        // Ο αλγόριθμος για να αυξήσουμε το "σκορ" προτίμησης του χρήστη
+        // για κάποιο επάγγελμα, είναι πολύ απλός. Κάθε ερώτηση έχει 3-4 απαντήσεις. 
+        // Κάθε απάντηση αντιστοιχεί σε ένα επάγγελμα. 
+        // Όποιο επάγγελμα επιλεξει ο χρήστης έμμεσα μέσω της ερώτησης, 
+        // προσθέτω σε αυτό το επάγγελμα +1 στο "σκορ" προτιμήσεων του χρήστη.
+        // Στο τέλος αφού έχει συμπληρώσει:
+        //      α) Το Quiz με όλες τις ερωτήσεις,
+        //      β) το ερωτηματολόγιο προτιμήσεων
+        // Τότε κάνουμε ταξινόμιση των "σκορ" προτίμησης του χρήστη
+        // και του προτείνουμε το επάγγελμα με το μεγαλύτερο σκορ.
+        // Αν τα επαγγέλματα με το μεγαλύτερο σκορ είναι πάνω απο 1,
+        // τότε πολύ απλά του εμφανίζουμε την λίστα με όσα επαγγέλματα
+        // έχουν την μεγαλύτερη βαθμολογία (όσα και αν είναι αυτά)
 
         jobScoresPutEndpoint = _config["editOneJobScoreEndpoint"];
 

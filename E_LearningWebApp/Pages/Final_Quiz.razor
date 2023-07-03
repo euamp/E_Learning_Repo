@@ -117,6 +117,21 @@
 </div>
 
 @code {
+    private JobScores jobScores = new JobScores();
+    private string jobScoresEndpoint = string.Empty;
+    private string jobScoresPutEndpoint = string.Empty;
+
+    private int soft_dev_score;
+    private int web_dev_score;
+    private int mobile_dev_score;
+    private int ui_ux_dev_score;
+    private int data_sci_score;
+    private int machine_learning_dev_score;
+    private int net_admin_score;
+    private int security_admin_score;
+    private int game_dev_score;
+    private int professor_score;
+
     List<Question> questions = new List<Question>();
     private string questionsEndpoint = string.Empty;
     private bool notLoadedQuestions = true;
@@ -148,6 +163,8 @@
         {
             userID = authState.User.FindFirst(ClaimTypes.Sid).Value.ToString();
         }
+
+        getJobScores();
     }
 
     private async Task<List<Question>> getQuestions()
@@ -163,6 +180,31 @@
         {
             Console.Out.WriteLineAsync(ex.Message);
             return null;
+        }
+    }
+
+    private async void getJobScores()
+    {
+        jobScoresEndpoint = _config["getOneJobScoreEndpoint"];
+
+        try
+        {
+            jobScores = await _client.GetFromJsonAsync<JobScores>(jobScoresEndpoint + userID);
+
+            soft_dev_score = jobScores.Software_Developer;
+            web_dev_score = jobScores.Web_Developer;
+            mobile_dev_score = jobScores.Mobile_App_Developer;
+            ui_ux_dev_score = jobScores.UI_UX_Designer;
+            data_sci_score = jobScores.Data_Scientist;
+            machine_learning_dev_score = jobScores.Machine_Learning_Engineer;
+            net_admin_score = jobScores.Network_Administrator;
+            security_admin_score = jobScores.Cybersecurity_Analyst;
+            game_dev_score = jobScores.Game_Developer;
+            professor_score = jobScores.Professors;
+        }
+        catch (Exception ex)
+        {
+            Console.Out.WriteLineAsync(ex.Message);
         }
     }
 
@@ -196,6 +238,47 @@
                 if (result.IsCorrect == "yes")
                 {
                     score++;
+                    // Εδώ εφαρμόζεται ο "αλγόριμος" για την προτίμηση του χρήστη
+                    if (questions[questionsIndex - 1].QuizId.Equals(2002))
+                    {
+                        soft_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2003))
+                    {
+                        web_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2004))
+                    {
+                        mobile_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2005))
+                    {
+                        ui_ux_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2006))
+                    {
+                        data_sci_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2007))
+                    {
+                        machine_learning_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2008))
+                    {
+                        net_admin_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2009))
+                    {
+                        security_admin_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2010))
+                    {
+                        game_dev_score++;
+                    }
+                    else if (questions[questionsIndex - 1].QuizId.Equals(2011))
+                    {
+                        professor_score++;
+                    }
                 }
 
                 //userAnswer.QuestionId = result.QuestionId
@@ -239,11 +322,49 @@
 
     private void NavigateTo()
     {
+        updateJobScores();
+
         navManager.NavigateTo("/jobs");
     }
 
     private void NavigateToSolutions()
     {
+        updateJobScores();
+
         navManager.NavigateTo("/Final_Quiz_Solutions");
+    }
+
+    private async void updateJobScores()
+    {
+        // Επεξήγηση αλγορίθμου:
+        // Ο αλγόριθμος για να αυξήσουμε το "σκορ" προτίμησης του χρήστη
+        // για κάποιο επάγγελμα, είναι πολύ απλός. Αν ο χρήστης απαντήσει σωστά 
+        // σε μία ερώτηση για Software Developers, 
+        // τότε πολύ απλά αυξάνω το σκορ των Software Developers κατά 1. 
+        // Αν απαντήσει λάθος πολύ απλά δεν αλλάζω το "σκορ" προτίμησής του 
+        // για αυτό το επάγγελμα.
+        // Στο τέλος αφού έχει συμπληρώσει:
+        //      α) Το Quiz με όλες τις ερωτήσεις,
+        //      β) το ερωτηματολόγιο προτιμήσεων
+        // Τότε κάνουμε ταξινόμιση των "σκορ" προτίμησης του χρήστη 
+        // και του προτείνουμε το επάγγελμα με το μεγαλύτερο σκορ. 
+        // Αν τα επαγγέλματα με το μεγαλύτερο σκορ είναι πάνω απο 1, 
+        // τότε πολύ απλά του εμφανίζουμε την λίστα με όσα επαγγέλματα 
+        // έχουν την μεγαλύτερη βαθμολογία (όσα και αν είναι αυτά)
+        jobScoresPutEndpoint = _config["editOneJobScoreEndpoint"];
+
+        JobScoresEditDTO jobScoresEdit = new JobScoresEditDTO();
+        jobScoresEdit.Software_Developer = soft_dev_score;
+        jobScoresEdit.Web_Developer = web_dev_score;
+        jobScoresEdit.Mobile_App_Developer = mobile_dev_score;
+        jobScoresEdit.UI_UX_Designer = ui_ux_dev_score;
+        jobScoresEdit.Data_Scientist = data_sci_score;
+        jobScoresEdit.Machine_Learning_Engineer = machine_learning_dev_score;
+        jobScoresEdit.Network_Administrator = net_admin_score;
+        jobScoresEdit.Cybersecurity_Analyst = security_admin_score;
+        jobScoresEdit.Game_Developer = game_dev_score;
+        jobScoresEdit.Professors = professor_score;
+
+        var result = await _client.PutAsJsonAsync<JobScoresEditDTO>(jobScoresPutEndpoint + userID, jobScoresEdit);
     }
 }
