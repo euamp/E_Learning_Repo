@@ -10,14 +10,54 @@
 </style>
 
 <div class="container">
+    <div class="row text-white">
+        <h4>
+            Παρακάτω ακολουθούν τα 2 Quiz που θα συμπληρώσετε 
+            για να σας προτείνουμε καριέρα στον τομέα της πληροφορικής.
+        </h4>
+        <h3 class="text-danger">
+            <u>
+                Προσοχή!
+            </u>
+        </h3>
+        <h4>
+            Για να γίνει σωστός υπολογισμός και για να έχουμε στα
+            χέρια μας περισσότερα δεδομένα με τα οποία μπορούμε να λειτουργήσουμε
+            για να σας προτείνουμε την κατάλληλη καριέρα, σας προτεινουμε τα εξής:
+            <br />
+            <br />
+            <ol>
+                <li>
+                    <h4>
+                        <b>
+                            Συμπληρώστε και τα 2 Quiz πρωτού πατήσετε το κουμπί:
+                            "Πρόταση Καριέρας"
+                        </b>
+                    </h4>
+                </li>
+                <li>
+                    <h4>
+                        <b>
+                            Συμπληρώστε το τελικό Quiz (το πρώτο από τα 2 Quiz) πάνω απο μία
+                            φορά έτσι ώστε να έχουμε ακόμα καλύτερα αποτελέσματα.
+                        </b>
+                    </h4>
+                </li>
+            </ol>
+        </h4>
+
+        <br />
+        <br />
+        
+    </div>
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-3">
                 <img height="400" src="https://viralsolutions.net/wp-content/uploads/2019/06/shutterstock_749036344.jpg" class="card-img-top" alt="Quiz 1">
                 <div class="card-body">
-                    <h3 class="card-title">Quiz 1</h3>
+                    <h3 class="card-title">Τελικό Quiz ερωτήσεων</h3>
                     <p class="card-text">Δοκιμάστε να λύσετε ένα Quiz για να ελέγξετε τις ικανότητές σας.</p>
-                    <a href="final_quiz_quiz" class="btn btn-success">Start Quiz 1</a>
+                    <a href="final_quiz_quiz" class="btn btn-success">Start Final Quiz</a>
                 </div>
             </div>
         </div>
@@ -25,22 +65,21 @@
             <div class="card mb-3">
                 <img height="400" src="https://media.licdn.com/dms/image/C4E12AQECibDyxNI2xw/article-cover_image-shrink_600_2000/0/1613053403603?e=2147483647&v=beta&t=9KG0bGOh20e_hwnuS7u122muRjhIjZwiOC52tSK_vUU" class="card-img-top" alt="Quiz 2">
                 <div class="card-body">
-                    <h3 class="card-title">Quiz 2</h3>
-                    <p class="card-text">Απαντήστε στις ερωτήσεις γενικού τυπου ωστε να σας κατανοήσουμε καλύτερα.</p>
-                    <a href="quiz_of_preferences" class="btn btn-success">Start Quiz 2</a>
+                    <h3 class="card-title">Ερωτηματολόγιο Προτιμήσεων</h3>
+                    <p class="card-text">Απαντήστε στο ερωτηματολόγιο προτιμήσεων ωστε να σας κατανοήσουμε καλύτερα.</p>
+                    <a href="quiz_of_preferences" class="btn btn-success">Start Preference Quiz </a>
                 </div>
             </div>
         </div>
     </div>
 
     <br />
-    <br />
 
     <div class="row">
         <div class="col">
             <div class="form-check form-switch">
                 <input class="form-check-input fs-5" type="checkbox" id="quizCompletedCheck" @bind="@quizCompleted">
-                <h4 class="form-check-label text-white" for="quizCompletedCheck">I have completed both types of quizzes</h4>
+                <h4 class="form-check-label text-white" for="quizCompletedCheck">Έχω συμπληρώσει το τελικό Quiz και το ερωτηματολόγιο προτιμήσεων</h4>
             </div>
         </div>
     </div>
@@ -58,18 +97,22 @@
 
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary btn-lg btn-block" disabled="@(!quizCompleted && !jobIsNotEvaluated)" @onclick="EvaluateCareerPath" data-bs-toggle="modal" data-bs-target="#exampleModal">Evaluate my Career Path</button>
+            <button class="btn btn-primary btn-lg btn-block" disabled="@(!quizCompleted && !jobIsNotEvaluated)" @onclick="EvaluateCareerPath" data-bs-toggle="modal" data-bs-target="#exampleModal">Πρόταση Καριέρας</button>
         </div>
     </div>
 
 </div>
+
+<br />
+<br />
+<br />
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Αποτελέσματα!</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Με βάση τις απαντήσεις σου, η καριέρα που σου ταιράζει είναι:</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
