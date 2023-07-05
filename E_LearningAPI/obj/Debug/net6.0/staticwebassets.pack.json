@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\Files\\User_Manual.pdf",
-      "PackagePath": "staticwebassets\\Files\\User_Manual.pdf"
+      "Id": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\Files\\UserManual.pdf",
+      "PackagePath": "staticwebassets\\Files\\UserManual.pdf"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.E_LearningAPI.Microsoft.AspNetCore.StaticWebAssets.props",

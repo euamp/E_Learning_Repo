@@ -113,7 +113,6 @@ public class QuestionsController : ControllerBase
     [HttpGet("someQuestions/{id}")]
     public ActionResult<Question> GetSomeQuestions(int id)
     {
-        // TODO: Προσθέτω τα Include() Που έχει και από πάνω
         var question = _context.Questions
             .Where(i => i.QuizId == id)
             .Include(a => a.Answers);

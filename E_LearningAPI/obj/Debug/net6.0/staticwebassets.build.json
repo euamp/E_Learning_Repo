@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9WRZlzPBmkoLq0qNeTcTL3GgcbivxS70PzLrmoeW2Wc=",
+  "Hash": "h0aL5h+XyuoP7+sG8rV22lV1CCZr9dnGrKFEZQEroXg=",
   "Source": "E_LearningAPI",
   "BasePath": "_content/E_LearningAPI",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\Files\\User_Manual.pdf",
+      "Identity": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\Files\\UserManual.pdf",
       "SourceId": "E_LearningAPI",
       "SourceType": "Discovered",
       "ContentRoot": "S:\\visual_studio_projects\\web_projects\\E_Learning\\E_LearningAPI\\wwwroot\\",
       "BasePath": "_content/E_LearningAPI",
-      "RelativePath": "Files/User_Manual.pdf",
+      "RelativePath": "Files/UserManual.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\User_Manual.pdf"
+      "OriginalItemSpec": "wwwroot\\Files\\UserManual.pdf"
     }
   ]
 }
