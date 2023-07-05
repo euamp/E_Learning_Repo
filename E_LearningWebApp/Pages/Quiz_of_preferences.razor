@@ -59,7 +59,7 @@
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="NavigateToTheFinalQuizes">Close</button>
             </div>
         </div>
     </div>
@@ -437,5 +437,10 @@
         public int OptionId { get; set; }
         public string OptionText { get; set; }
         public string jobReference { get; set; }
+    }
+
+    private void NavigateToTheFinalQuizes()
+    {
+        navManager.NavigateTo("/Test_of_career");
     }
 }
